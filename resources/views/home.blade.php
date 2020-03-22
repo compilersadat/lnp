@@ -14,8 +14,12 @@
                             <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Recent Order</a>
                             <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Orders Details</a>
                             <a class="list-group-item list-group-item-action" id="list-acc-details-list" data-toggle="list" href="#list-acc-details" role="tab" aria-controls="list-acc-details-list">Account Details</a>
-                            <a class="list-group-item list-group-item-action"  href="">Logout</a>
-
+                            <a class="list-group-item list-group-item-action"  href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                          document.getElementById('logout-form').submit();">Logout</a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
                         </div>
                     </div>
                     <div class="col-9 px-4" style="border-left: 1px solid #0000001a;">
@@ -54,15 +58,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-4 mt-3">
-                                        <div class="cards">
-                                            <div class="card text-center dash-card card_style" style="box-shadow: 0 0 4px rgba(0,0,0,.18);border-radius: 0px;">
-                                                <div class="card-body text-one py-3 " style="border-radius: 0px;">
-                                                    <i class="fa fa-sign-out font-size-40 icon-style"></i>                                                <h6 class="font-size font-weight-600 pt-3 text-one text-black">LOGOUT</h6>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    
                                 </div>
 
                             </div>

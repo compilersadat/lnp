@@ -112,10 +112,16 @@
                 </ul>
                 <!-- Links -->
                 <ul class="navbar-nav ml-auto pr-5 ">
-
+                    @if(!Auth::guard('web')->user())
                     <li class="nav-item px-3">
                         <a class="nav-link  btn-shadow btn-color btn btn-sm px-5 font-weight-bold" href="{{url('user_login')}}" >Sing In</a>
                     </li>
+                    @endif
+                    @if(Auth::guard('web')->user())
+                    <li class="nav-item px-3">
+                        <a class="nav-link" href="{{route('home')}}">Welcome {{Auth::user()->name}}</a>
+                    </li>
+                    @endif
                     <li class="nav-link social_card px-3 d-none d-md-block">
                         <i class="fa fa-facebook  black-text "></i>
                     </li>

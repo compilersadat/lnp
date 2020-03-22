@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Category;
+use App\Offer;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class OfferController extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth:admin');
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -18,7 +19,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('admin.categories.index');
+        return view('admin.offers.index');
     }
 
     /**
@@ -28,7 +29,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.categories.create');
+        return view('admin.offers.create');
     }
 
     /**
@@ -39,21 +40,30 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
+        //
         $this->validate($request,[
             'name'=>'required',
+            'description'=>'required',
+            'a_price'=>'required',
+            'o_price'=>'required',
         ]);
-        $cat=new Category();
-        $cat->name=$request->name;
+        $offer=new Offer();
+        $offer->title=$request->name;
+        $offer->description=$request->description;
+        $offer->day=$request->day;
+        $offer->a_price=$request->a_price;
+        $offer->o_price=$request->o_price;
+
         if($request->file('image')) {
             $upload = $request->file('image');
             $fileformat = time() . '.' . $upload->getClientOriginalName();
-            if ($upload->move('uploads/cats/', $fileformat)) {
-                $cat->image = $fileformat;
+            if ($upload->move('uploads/offers/', $fileformat)) {
+                $offer->image = $fileformat;
             }
             
         }
-        if($cat->save()){
-            return redirect()->back()->with('success',' Category Added successfully.');
+        if($offer->save()){
+            return redirect()->back()->with('success',' Offer Added successfully.');
         }
         else{
             return redirect()->back()->with('unsuccess','Failed try again.');
@@ -63,52 +73,60 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Category  $category
+     * @param  \App\Offer  $offer
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Offer $offer)
     {
-        $cat=Category::where('id',$id)->first();
-        return view('admin.categories.show',compact('cat'));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Category  $category
+     * @param  \App\Offer  $offer
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $cat=Category::where('id',$id)->first();
-        return view('admin.categories.edit',compact('cat'));
+        //
+        $offer=Offer::where('id',$id)->first();
+        return view('admin.offers.edit',compact('offer'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Category  $category
+     * @param  \App\Offer  $offer
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
+        //
         $this->validate($request,[
             'name'=>'required',
+            'discription'=>'required',
+            'a_price'=>'required',
+            'o_price'=>'required',
         ]);
-        $cat=Category::where('id',$id)->first();
-        
-        $cat->name=$request->name;
+        $offer=Offer::where('id',$id)->first();
+        $offer->title=$request->name;
+        $offer->description=$request->description;
+        $offer->day=$request->day;
+        $offer->a_price=$request->a_price;
+        $offer->o_price=$request->o_price;
+
         if($request->file('image')) {
             $upload = $request->file('image');
             $fileformat = time() . '.' . $upload->getClientOriginalName();
-            if ($upload->move('uploads/cats/', $fileformat)) {
-                $cat->image = $fileformat;
+            if ($upload->move('uploads/offers/', $fileformat)) {
+                $offer->image = $fileformat;
             }
-           
+            
         }
-        if($cat->update()){
-            return redirect()->route('categories.index');
+        if($offer->update()){
+            return redirect()->back()->with('success',' Offer Updated successfully.');
         }
         else{
             return redirect()->back()->with('unsuccess','Failed try again.');
@@ -118,17 +136,18 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Category  $category
+     * @param  \App\Offer  $offer
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy(Offer $offer)
     {
         //
     }
+
     public function delete($id)
     {
-        if(Category::where('id',$id)->delete()){
-            return redirect()->back()->with('success',' Category Updated successfully.');
+        if(Offer::where('id',$id)->delete()){
+            return redirect()->back()->with('success',' Offer Updated successfully.');
         }
         else{
             return redirect()->back()->with('unsuccess','Failed try again.');

@@ -1,4 +1,4 @@
-@extends('admin_panel.layouts.layout')
+@extends('admin.layouts.layout')
 @section('content')
     <div class="content-body">
 
@@ -6,7 +6,7 @@
             <div class="col p-md-0">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
-                    <li class="breadcrumb-item active"><a href="javascript:void(0)">All Categories</a></li>
+                    <li class="breadcrumb-item active"><a href="javascript:void(0)">All Menu's</a></li>
                 </ol>
             </div>
         </div>
@@ -20,11 +20,11 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-7">
-                                    <h4 class="card-title">All Categories</h4>
+                                    <h4 class="card-title">All Menu's</h4>
 
                                 </div>
                                 <div class="col-md-5 text-right">
-                                    <a href="{{url('addcategory')}}" type="button" class="btn mb-1 btn-primary">Add New <span class="btn-icon-right"><i class="fa fa-plus"></i></span>
+                                    <a href="{{url('addmenu')}}" type="button" class="btn mb-1 btn-primary">Add New <span class="btn-icon-right"><i class="fa fa-plus"></i></span>
                                     </a>
                                 </div>
                             </div>
@@ -33,7 +33,10 @@
                                 <table class="table table-striped table-bordered zero-configuration">
                                     <thead>
                                     <tr>
-                                        <th>Category Name</th>
+                                        <th>Title</th>
+                                        <th>Description</th>
+                                        <th>Price</th>
+                                        <th>Status</th>
                                         <th>Image</th>
                                         <th>Action</th>
 
@@ -43,20 +46,31 @@
                                     <tr>
                                         <td class="">LNP Special</td>
                                         <td>
+                                            chicken, Salami/Pepperoni, Ground Beef
+                                        </td>
+                                        <td>$2.20</td>
+                                        <td>Active</td>
+                                        <td>
                                             <img src="{{asset('svg/resturant/slider1.png')}}" width="50" height="50">
                                         </td>
                                         <td>
                                             <i class="fa fa-trash text-danger" style="font-size: 20px;"></i>
                                             <i class="fa fa-edit pl-3 text-primary" style="font-size: 20px;"></i>
+                                            <i class="fa fa-check pl-3 text-success" style="font-size: 20px;"></i>
+                                            <i class="fa fa-times pl-3 text-danger" style="font-size: 20px;"></i>
                                         </td>
 
                                     </tr>
                                     </tbody>
                                     <tfoot>
                                     <tr>
-                                        <th>Category Name</th>
+                                        <th>Title</th>
+                                        <th>Description</th>
+                                        <th>Price</th>
+                                        <th>Status</th>
                                         <th>Image</th>
                                         <th>Action</th>
+
 
                                     </tr>
                                     </tfoot>
