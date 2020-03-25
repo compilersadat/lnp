@@ -114,7 +114,7 @@
                 <ul class="navbar-nav ml-auto pr-5 ">
                     @if(!Auth::guard('web')->user())
                     <li class="nav-item px-3">
-                        <a class="nav-link  btn-shadow btn-color btn btn-sm px-5 font-weight-bold" href="{{url('login')}}" >Sing In</a>
+                        <a class="nav-link  btn-shadow btn-color btn btn-sm px-5 font-weight-bold" href="{{url('login')}}" >Sign In</a>
                     </li>
                     @endif
                     @if(Auth::guard('web')->user())
