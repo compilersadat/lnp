@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 @section('content')
-<section class="menu-banner" style="background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('svg/one-cheese-pizza-2741457.jpg') ;background-size:cover ;height: 330px;">
+<section class="menu-banner" style="background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('svg/resturant/back.jpeg') ;background-size:cover ;height: 330px;">
     <div class=" pt-5 container web-color">
         <div class="row justify-content-center mt-3">
             <div class="col-md-8">

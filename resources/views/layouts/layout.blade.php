@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LateNightPizza</title>
-    <link rel="icon" href="svg/resturant/logo3.png" type="image/gif" sizes="60x60">
+    <link rel="icon" href="svg/logo.png" type="image/gif" sizes="60x60">
     <link rel="stylesheet " href="{{url('css/style.css')}}">
 {{--    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">--}}
 {{--    <link href="https://fonts.googleapis.com/css?family=Trade+Winds&display=swap" rel="stylesheet">--}}
@@ -71,7 +71,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark" style="background: #fff;">
         <!-- Navbar brand -->
         <div class="container-fluid">
-            <a class="navbar-brand  pr-3"  href="#"><img src="{{asset('svg/resturant/logo3.png')}}" width="100" height="70"></a>
+            <a class="navbar-brand  pr-3"  href="{{url('/')}}"><img src="{{asset('svg/logo.png')}}" width="80" height="80"></a>
             <!--            <a href="" class="black-text">-->
             <!--                Canada-->
             <!--                <br>-->
@@ -80,7 +80,7 @@
 
             <!-- Collapse button -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
-                    aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation" style="background: #FF671B;">
+                    aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation" style="background: #002E50;">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
@@ -114,7 +114,7 @@
                 <ul class="navbar-nav ml-auto pr-5 ">
                     @if(!Auth::guard('web')->user())
                     <li class="nav-item px-3">
-                        <a class="nav-link  btn-shadow btn-color btn btn-sm px-5 font-weight-bold" href="{{url('user_login')}}" >Sing In</a>
+                        <a class="nav-link  btn-shadow btn-color btn btn-sm px-5 font-weight-bold" href="{{url('login')}}" >Sing In</a>
                     </li>
                     @endif
                     @if(Auth::guard('web')->user())
@@ -144,7 +144,7 @@
     @yield('content')
 </section>
 <!-- Footer -->
-<section style="background-image: url('svg/resturant/footer.jpg');background-size: cover;">
+<section class="footer">
     <div class="container pt-5 pb-2">
         <div class="row ">
             <div class="col-md-8 ml-auto white-text text-center">

@@ -18,7 +18,7 @@
     height: 3px;
     content: "";
     position: absolute;
-    background-color: #FF671B;
+    background-color: #002E50;
 }
 
 .nav-link-ltr::before {
@@ -72,7 +72,7 @@
 .cat-style::after{
     content: "";
     width: 200px;
-    background: red;
+    background: #FF1E56;
 }
 /*.pizza{*/
 /*    font-family: 'Trade Winds', cursive!important;*/
@@ -101,7 +101,7 @@
     width: 100px;
     display: block;
     background: #79A70A;
-    background: linear-gradient(#002E50 0%, #002E50 100%);
+    background: linear-gradient(#FF1E56 0%, #FF1E56 100%);
     box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
     position: absolute;
     top: 19px; right: -21px;
@@ -110,19 +110,19 @@
     content: "";
     position: absolute; left: 0px; top: 100%;
     z-index: -1;
-    border-left: 3px solid #002E50;
+    border-left: 3px solid #FF1E56;
     border-right: 3px solid transparent;
     border-bottom: 3px solid transparent;
-    border-top: 3px solid #002E50;
+    border-top: 3px solid #FF1E56;
 }
 .ribbon span::after {
     content: "";
     position: absolute; right: 0px; top: 100%;
     z-index: -1;
     border-left: 3px solid transparent;
-    border-right: 3px solid #002E50;
+    border-right: 3px solid #FF1E56;
     border-bottom: 3px solid transparent;
-    border-top: 3px solid #002E50;
+    border-top: 3px solid #FF1E56;
 }
 .btn-floating{
     position: relative;
@@ -277,4 +277,11 @@
     .navbar-brand{
         padding-left: 0rem;
     }
+    .footer{
+        background: #002E50!important;
+    }
+}
+.footer{
+    background-image: url("../svg/resturant/footer.jpg");
+    background-size: cover;
 }

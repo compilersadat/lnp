@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 @section('content')
-<section class="menu-banner" style="background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('svg/back2.jpeg'); background-size: cover;">
+<section class="menu-banner" style="background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('svg/resturant/back.jpeg'); background-size: cover;">
         <div class=" py-5 container white-text">
             <div class="row justify-content-center">
                 <div class="col-md-8">
