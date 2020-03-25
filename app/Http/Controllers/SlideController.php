@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
 use App\Slide;
 use Illuminate\Http\Request;
@@ -10,7 +10,7 @@ class SlideController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth:admins');
+        $this->middleware('auth:admin');
     }
     /**
      * Display a listing of the resource.

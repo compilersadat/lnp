@@ -166,13 +166,13 @@
         <ul class="metismenu" id="menu">
             <li class="nav-label">Dashboard</li>
             <li>
-                <a href="{{url('dashboard')}}" aria-expanded="false">
-                   <span class="nav-text">Dashboard</span>
+                <a href="{{route('admin.home')}}" aria-expanded="false">
+                   <span class="nav-text"><i class="mdi mdi-speedometer"></i> Dashboard</span>
                 </a>
             </li>
             <li class="mega-menu mega-menu-sm">
                 <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                   <span class="nav-text">Categories</span>
+                   <span class="nav-text">  Categories</span>
                 </a>
                 <ul aria-expanded="false">
                     <li><a href="{{route('categories.index')}}">All Categories</a></li>
@@ -181,24 +181,27 @@
 
                 </ul>
             </li>
-            
+            <li class="mega-menu mega-menu-sm">
+                <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                   <span class="nav-text">  Sizes</span>
+                </a>
+                <ul aria-expanded="false">
+                    <li><a href="{{route('sizes.index')}}">All Sizes</a></li>
+                    <li><a href="{{route('sizes.create')}}">Add size</a></li>
+
+
+                </ul>
+            </li>
             <li>
                 <a class="has-arrow" href="javascript:void()" aria-expanded="false">
                    <span class="nav-text">Menu's</span>
                 </a>
                 <ul aria-expanded="false">
-                    <li><a href="{{url('addmenu')}}">Add New</a></li>
-                    <li><a href="{{url('allitems')}}">All Menu's</a></li>
-                    <li><a href="{{url('active_pizza')}}">Active Pizza</a></li>
-                    <li><a href="{{url('deactive_pizza')}}">Deactive Pizza</a></li>
+                    <li><a href="{{route('menus.create')}}">Add New</a></li>
+                    <li><a href="{{route('menus.index')}}">All Menu's</a></li>
+                    
 
-                    <!-- </ul>
-                </li>
-                <li>
-                    <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                        <i class="icon-layers menu-icon"></i><span class="nav-text">Components</span>
-                    </a>
-                    <ul aria-expanded="false"> -->
+                   
 
                 </ul>
             </li>
@@ -218,8 +221,8 @@
                     <span class="nav-text">Sliders</span>
                 </a>
                 <ul aria-expanded="false">
-                    <li><a href="{{url('addslider')}}">Add New</a></li>
-                    <li><a href="{{url('allslider')}}">All Slider</a></li>
+                    <li><a href="{{route('slides.index')}}">All Sliders</a></li>
+                    <li><a href="{{route('slides.create')}}">Add New</a></li>
 
                     <!-- </ul>
                 </li>

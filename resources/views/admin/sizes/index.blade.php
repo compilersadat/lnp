@@ -6,7 +6,7 @@
             <div class="col p-md-0">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
-                    <li class="breadcrumb-item active"><a href="javascript:void(0)">All Categories</a></li>
+                    <li class="breadcrumb-item active"><a href="javascript:void(0)">All Sizes</a></li>
                 </ol>
             </div>
         </div>
@@ -20,11 +20,11 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-7">
-                                    <h4 class="card-title">All Slider's</h4>
+                                    <h4 class="card-title">All Categories</h4>
 
                                 </div>
                                 <div class="col-md-5 text-right">
-                                    <a href="{{url('addslider')}}" type="button" class="btn mb-1 btn-primary">Add New <span class="btn-icon-right"><i class="fa fa-plus"></i></span>
+                                    <a href="{{route('sizes.create')}}" type="button" class="btn mb-1 btn-primary">Add New <span class="btn-icon-right"><i class="fa fa-plus"></i></span>
                                     </a>
                                 </div>
                             </div>
@@ -33,35 +33,26 @@
                                 <table class="table table-striped table-bordered zero-configuration">
                                     <thead>
                                     <tr>
-                                        <th>Title</th>
-                                        <th>Description</th>
-                                        <th>Image</th>
-                                        <th>Link</th>
+                                        <th> Name</th>
                                         <th>Action</th>
 
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
-                                        <td class="">LNP Special</td>
-                                        <td>Dkdcuidcudgcdgucygduyg</td>
+                                    @foreach (App\Variable::orderBy('id','DESC')->get() as $item)
+                                        <tr>
+                                        <td>{{$item->value}}</td>
                                         <td>
-                                            <img src="{{asset('svg/resturant/slider1.png')}}" width="50" height="50">
+                                           <a href="{{route('size.delete',$item->id)}}" onclick="return confirm('Are you sure you want to delete this item?');"> <i class="fa fa-trash text-danger" style="font-size: 20px;"></i></a>
+                                        <a href="{{route('sizes.edit',$item->id)}}"><i class="fa fa-edit pl-3 text-primary" style="font-size: 20px;"></i></a>
                                         </td>
-                                        <td>https://www.google.com/</td>
-                                        <td>
-                                            <i class="fa fa-trash text-danger" style="font-size: 20px;"></i>
-                                            <i class="fa fa-edit pl-3 text-primary" style="font-size: 20px;"></i>
-                                        </td>
-
-                                    </tr>
+                                        </tr>
+                                    @endforeach
                                     </tbody>
                                     <tfoot>
                                     <tr>
-                                        <th>Title</th>
-                                        <th>Description</th>
-                                        <th>Image</th>
-                                        <th>Link</th>
+                                        <th> Name</th>
+                                       
                                         <th>Action</th>
 
                                     </tr>

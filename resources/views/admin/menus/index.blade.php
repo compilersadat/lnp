@@ -24,7 +24,7 @@
 
                                 </div>
                                 <div class="col-md-5 text-right">
-                                    <a href="{{url('addmenu')}}" type="button" class="btn mb-1 btn-primary">Add New <span class="btn-icon-right"><i class="fa fa-plus"></i></span>
+                                    <a href="{{route('menus.create')}}" type="button" class="btn mb-1 btn-primary">Add New <span class="btn-icon-right"><i class="fa fa-plus"></i></span>
                                     </a>
                                 </div>
                             </div>
@@ -36,41 +36,47 @@
                                         <th>Title</th>
                                         <th>Description</th>
                                         <th>Price</th>
-                                        <th>Status</th>
+                                        <th>Category</th>
                                         <th>Image</th>
                                         <th>Action</th>
 
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
-                                        <td class="">LNP Special</td>
-                                        <td>
-                                            chicken, Salami/Pepperoni, Ground Beef
-                                        </td>
-                                        <td>$2.20</td>
-                                        <td>Active</td>
-                                        <td>
-                                            <img src="{{asset('svg/resturant/slider1.png')}}" width="50" height="50">
-                                        </td>
-                                        <td>
-                                            <i class="fa fa-trash text-danger" style="font-size: 20px;"></i>
-                                            <i class="fa fa-edit pl-3 text-primary" style="font-size: 20px;"></i>
-                                            <i class="fa fa-check pl-3 text-success" style="font-size: 20px;"></i>
-                                            <i class="fa fa-times pl-3 text-danger" style="font-size: 20px;"></i>
-                                        </td>
+                                        @foreach(@App\Item::all() as $row)
+                                            <tr>
+                                                
+                                                <td class="">{{$row->title}}</td>
+                                                <td>
+                                                    {{$row->description}}
+                                                </td>
+                                                <td>
+                                                    @foreach(@App\ItemVariable::where('item_id',$row->id)->get() as $var)
+                                                        <b>{{$var->value}}:</b>{{$var->price}}<br>
+                                                    @endforeach
+                                                </td>
+                                                <td>Cat</td>
+                                                <td>
+                                                    <img src="{{asset('uploads/menus/'.$row->image)}}" width="50" height="50">
+                                                </td>
+                                                <td>
+                                                <a href="{{route('item.delete',$row->id)}}"><i class="fa fa-trash text-danger" style="font-size: 20px;"></i></a>
+                                                    <a href="{{route('menus.edit',$row->id)}}"><i class="fa fa-edit pl-3 text-primary" style="font-size: 20px;"></i></a>
+                                                    {{-- <i class="fa fa-check pl-3 text-success" style="font-size: 20px;"></i>
+                                                    <i class="fa fa-times pl-3 text-danger" style="font-size: 20px;"></i> --}}
+                                                </td>
 
-                                    </tr>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                     <tfoot>
                                     <tr>
                                         <th>Title</th>
                                         <th>Description</th>
                                         <th>Price</th>
-                                        <th>Status</th>
+                                        <th>Category</th>
                                         <th>Image</th>
                                         <th>Action</th>
-
 
                                     </tr>
                                     </tfoot>

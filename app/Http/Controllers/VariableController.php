@@ -14,7 +14,7 @@ class VariableController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.sizes.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class VariableController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.sizes.create');
     }
 
     /**
@@ -35,7 +35,19 @@ class VariableController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'name'=>'required',
+        ]);
+
+        $size=new Variable();
+        $size->type=$request->type;
+        $size->value=$request->name;
+        if($size->save()){
+            return redirect()->route('sizes.index');
+        }
+        else{
+            return redirect()->back()->with('unsuccess','Failed try again.');
+        }
     }
 
     /**
@@ -55,9 +67,10 @@ class VariableController extends Controller
      * @param  \App\Variable  $variable
      * @return \Illuminate\Http\Response
      */
-    public function edit(Variable $variable)
+    public function edit($id)
     {
-        //
+        $size=Variable::where('id',$id)->first();
+        return view('admin.sizes.edit',compact('size'));
     }
 
     /**
@@ -67,9 +80,21 @@ class VariableController extends Controller
      * @param  \App\Variable  $variable
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Variable $variable)
+    public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            'name'=>'required',
+        ]);
+
+        $size=Variable::where('id',$id)->first();
+        $size->type=$request->type;
+        $size->value=$request->name;
+        if($size->update()){
+            return redirect()->route('sizes.index');
+        }
+        else{
+            return redirect()->back()->with('unsuccess','Failed try again.');
+        }
     }
 
     /**
@@ -81,5 +106,14 @@ class VariableController extends Controller
     public function destroy(Variable $variable)
     {
         //
+    }
+    public function delete($id)
+    {
+        if(Variable::where('id',$id)->delete()){
+            return redirect()->back()->with('success',' Variable Deleted successfully.');
+        }
+        else{
+            return redirect()->back()->with('unsuccess','Failed try again.');
+        }
     }
 }

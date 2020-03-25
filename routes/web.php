@@ -26,5 +26,10 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('category-delete/{id}', 'CategoryController@delete')->name('category.delete');
     Route::resource('offers', 'OfferController');
     Route::get('offer-delete/{id}', 'OfferController@delete')->name('offer.delete');
+    Route::resource('slides', 'SlideController');
+    Route::resource('sizes', 'VariableController');
+    Route::get('size-delete/{id}', 'VariableController@delete')->name('size.delete');
+    Route::resource('menus', 'ItemController');
+    Route::get('item-delete/{id}', 'ItemController@delete')->name('item.delete');
 
 });
