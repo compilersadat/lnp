@@ -49,6 +49,9 @@ class ItemController extends Controller
         $item->title=$request->title;
         $item->description=$request->disc;
         $item->cat_id=$request->cat;
+        if($request->custom=="1"){
+            $item->is_custom=1;
+        }
         if($request->file('image')) {
             $upload = $request->file('image');
             $fileformat = time() . '.' . $upload->getClientOriginalName();

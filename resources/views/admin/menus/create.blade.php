@@ -68,6 +68,14 @@
                                                 <label class="custom-file-label">Select Image</label>
                                             </div>
                                         </div>
+
+                                        <div class="form-group">
+                                            <label>Customizable:</label><br>
+                                            <input type="radio" id="male" name="custom" value="1">
+                                            <label for="male">Yes</label>
+                                            <input type="radio" id="female" name="custom" value="0">
+                                            <label for="female">No</label><br>
+                                        </div>
                                         <div class="text-center">
                                             <button type="" class="btn px-5 btn-primary">Add Now</button>
                                         </div>
