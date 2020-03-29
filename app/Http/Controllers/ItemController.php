@@ -144,6 +144,21 @@ class ItemController extends Controller
 
     }
 
+    public function changeStatus($id){
+        $item=Item::where('id',$id)->first();
+        if($item->active==1){
+            $item->active=0;
+        }else{
+            $item->active=1;
+        }
+        if($item->update()){
+            return redirect()->route('menus.index');
+        }else{
+            return redirect()->back()->with('unsuccess','Failed try again.');
+
+        }
+    }
+
     /**
      * Remove the specified resource from storage.
      *

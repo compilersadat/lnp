@@ -47,7 +47,7 @@ class ToppingValueController extends Controller
         $topping->count=$request->count;
         $topping->type=$request->type;
         if($topping->save()){
-            return redirect()->back()->with('success',' Topping Added successfully.');
+            return redirect()->route('toppings.index');
         }
         else{
             return redirect()->back()->with('unsuccess','Failed try again.');
@@ -97,11 +97,12 @@ class ToppingValueController extends Controller
         $topping->count=$request->count;
         $topping->type=$request->type;
         if($topping->update()){
-            return redirect()->back()->with('success',' Topping Updated successfully.');
+            return redirect()->route('toppings.index');
         }
         else{
             return redirect()->back()->with('unsuccess','Failed try again.');
-        }    }
+        } 
+       }
 
     /**
      * Remove the specified resource from storage.
@@ -109,8 +110,12 @@ class ToppingValueController extends Controller
      * @param  \App\ToppingValue  $toppingValue
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ToppingValue $toppingValue)
+    public function delete($id)
     {
-        //
+        if(ToppingValue::where('id',$id)->delete()){
+            return redirect()->back()->with('success',' Topping Deleted successfully.');
+        }else{
+            return redirect()->back()->with('unsuccess','Failed try again.');
+        }
     }
 }

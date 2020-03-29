@@ -49,6 +49,7 @@ class OfferController extends Controller
         ]);
         $offer=new Offer();
         $offer->title=$request->name;
+        $offer->ribben=$request->ribbon;
         $offer->description=$request->description;
         $offer->day=$request->day;
         $offer->a_price=$request->a_price;
@@ -112,6 +113,7 @@ class OfferController extends Controller
         ]);
         $offer=Offer::where('id',$id)->first();
         $offer->title=$request->name;
+        $offer->ribben=$request->ribbon;
         $offer->description=$request->description;
         $offer->day=$request->day;
         $offer->a_price=$request->a_price;

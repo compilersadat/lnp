@@ -18,6 +18,15 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/menus', 'UserController@menu')->name('menu');
+Route::get('/shop/{id}', 'UserController@shop')->name('shop');
+
+Route::post('/profile-update', 'UserController@updatePro')->name('prof');
+Route::post('/search', 'UserController@search')->name('search');
+Route::get('/contact-us', 'UserController@contact')->name('contact');
+Route::get('/redirect/{service}', 'Auth\LoginController@redirectToProvider');
+Route::get('/callback/{service}', 'Auth\LoginController@callback');
+
 Route::group(['prefix' => 'admin'], function () {
     Route::get('login','AdminLoginController@login')->name('admin.login');
     Route::post('login','AdminLoginController@adminLogin')->name('admin.login.post');
@@ -31,5 +40,9 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('size-delete/{id}', 'VariableController@delete')->name('size.delete');
     Route::resource('menus', 'ItemController');
     Route::get('item-delete/{id}', 'ItemController@delete')->name('item.delete');
-
+    Route::get('item-status/{id}', 'ItemController@changeStatus')->name('menu.status');
+    Route::resource('toppings', 'ToppingValueController');
+    Route::get('topping-delete/{id}', 'ToppingValueController@delete')->name('topping.delete');
+    Route::resource('prices', 'ToppingPriceController');
+    Route::get('price-delete/{id}', 'ToppingPriceController@delete')->name('price.delete');
 });

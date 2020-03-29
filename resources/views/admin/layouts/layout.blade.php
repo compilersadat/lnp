@@ -199,7 +199,8 @@
                 <ul aria-expanded="false">
                     <li><a href="{{route('menus.create')}}">Add New</a></li>
                     <li><a href="{{route('menus.index')}}">All Menu's</a></li>
-                    
+                    <li><a href="{{route('toppings.index')}}">Extra Toppings</a></li>
+                    <li><a href="{{route('prices.index')}}">Extra Toppings Prices</a></li>
 
                    
 
@@ -216,6 +217,7 @@
 
                 </ul>
             </li>
+            
             <li>
                 <a class="has-arrow" href="javascript:void()" aria-expanded="false">
                     <span class="nav-text">Sliders</span>
@@ -269,7 +271,7 @@
     ***********************************-->
     <div class="footer">
         <div class="copyright">
-            <p>Copyright &copy; Designed & Developed by <a href="https://themeforest.net/user/quixlab">Quixlab</a> 2018</p>
+            <p>Copyright &copy; Designed & Developed by  2018</p>
         </div>
     </div>
     <!--**********************************

@@ -4,7 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-
+use Socialite;
+use App\User;
 class LoginController extends Controller
 {
     /*
@@ -36,4 +37,35 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    public function redirectToProvider($service)
+        {
+            return Socialite::driver($service)->redirect();
+        }
+
+        public function callback($service){
+            try {
+                $user = Socialite::driver($service)->user();
+            } catch (\Exception $e) {
+                return redirect('/login');
+            }
+            $existingUser = User::where('email', $user->email)->first();
+            if($existingUser){
+                // log them in
+                auth()->login($existingUser, true);
+            } else {
+                // create a new user
+                $newUser                  = new User;
+                $newUser->name            = $user->name;
+                $newUser->email           = $user->email;
+                $newUser->save();
+                auth()->login($newUser, true);
+            }
+            return redirect()->to('/home');
+        }
+
+        public function fcallback(){
+            $user = Socialite::driver('facebook')->user();
+            dump($user) or die();
+        }
 }

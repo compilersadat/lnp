@@ -38,6 +38,7 @@
                                         <th>Price</th>
                                         <th>Category</th>
                                         <th>Image</th>
+                                        <th>Status</th>
                                         <th>Action</th>
 
                                     </tr>
@@ -59,11 +60,14 @@
                                                 <td>
                                                     <img src="{{asset('uploads/menus/'.$row->image)}}" width="50" height="50">
                                                 </td>
+                                            <td> @if($row->active==0) Inactive @endif @if($row->active==1) Active @endif</td>
                                                 <td>
                                                 <a href="{{route('item.delete',$row->id)}}"><i class="fa fa-trash text-danger" style="font-size: 20px;"></i></a>
                                                     <a href="{{route('menus.edit',$row->id)}}"><i class="fa fa-edit pl-3 text-primary" style="font-size: 20px;"></i></a>
-                                                    {{-- <i class="fa fa-check pl-3 text-success" style="font-size: 20px;"></i>
-                                                    <i class="fa fa-times pl-3 text-danger" style="font-size: 20px;"></i> --}}
+                                                    @if($row->active==0)<a href="{{route('menu.status',$row->id)}}"><i class="fa fa-check pl-3 text-success" style="font-size: 20px;"></i></a>
+                                                    @if($row->active==1)<a href="{{route('menu.status',$row->id)}}"><i class="fa fa-times pl-3 text-danger" style="font-size: 20px;"></i></a>@endif
+                                                    @endif
+                                                    @if($row->active==1)<a href="{{route('menu.status',$row->id)}}"><i class="fa fa-times pl-3 text-danger" style="font-size: 20px;"></i></a>@endif
                                                 </td>
 
                                             </tr>

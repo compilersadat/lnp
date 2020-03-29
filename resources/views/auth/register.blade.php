@@ -70,10 +70,10 @@
                                 <!-- Social login -->
                                 <p class="web-color text-center">or sign up with:</p>
                             <div class=" text-center">
-                                <a type="button" class="btn-floating text-center  btn-fb login_btn pt-1 btn-sm">
+                                <a href="{{url('/redirect/facebook')}}" class="btn-floating text-center  btn-fb login_btn pt-1 btn-sm">
                                     <i class="fa fa-facebook-f  pt-2 mt-1" style=" color:#3b5998!important ;"></i>
                                 </a>
-                                <a type="button" class="btn-floating text-center btn-gplus login_btn  btn-sm">
+                                <a href="{{url('/redirect/google')}}" class="btn-floating text-center btn-gplus login_btn  btn-sm">
                                     <i class="fa fa-google-plus  pt-2 mt-1 text-center" style=" color:#dd4b39!important ;"></i>
                                 </a>
                             </div>

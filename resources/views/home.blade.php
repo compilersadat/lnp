@@ -10,10 +10,8 @@
                         <hr>
 
                         <div class="list-group font-weight-600 text-black font-size text-one " id="list-tab" role="tablist">
-                            <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-dashboard" role="tab" aria-controls="Dashboard">Dashboard</a>
-                            <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Recent Order</a>
-                            <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Orders Details</a>
-                            <a class="list-group-item list-group-item-action" id="list-acc-details-list" data-toggle="list" href="#list-acc-details" role="tab" aria-controls="list-acc-details-list">Account Details</a>
+                            <a class="list-group-item list-group-item-action active show" id="list-acc-details-list" data-toggle="list" href="#list-acc-details" role="tab" aria-controls="list-acc-details-list">My Profile</a>
+                            <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">My Orders</a>
                             <a class="list-group-item list-group-item-action"  href="{{ route('logout') }}"
                             onclick="event.preventDefault();
                                           document.getElementById('logout-form').submit();">Logout</a>
@@ -24,7 +22,7 @@
                     </div>
                     <div class="col-9 px-4" style="border-left: 1px solid #0000001a;">
                         <div class="tab-content" id="nav-tabContent">
-                            <div class="tab-pane fade show active" id="list-dashboard" role="tabpanel" aria-labelledby="list-home-list">
+                            <div class="tab-pane fade " id="list-dashboard" role="tabpanel" aria-labelledby="list-home-list">
                                 <div class="row">
                                     <div class="col-md-4 mt-3">
                                         <div class="cards">
@@ -63,6 +61,16 @@
 
                             </div>
                             <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
+                                @if(@App\Order::count()==0)
+                                <div class="col-md-12 text-center">
+                                    <h6>No Data.</h6>
+                                    <p>Order Some Delicious Food </p>
+                                    <img src="{{asset('svg/orders.svg')}}" width="100"/><br>
+                                <a href="{{route('menu')}}" class="btn btn-sm  indigo" >Continue Shopping</a>
+
+                                </div>
+                                    
+                                @else
                                 <table class="table">
                                     <thead>
                                     <tr class="text-two text-black">
@@ -92,6 +100,7 @@
 
                                     </tbody>
                                 </table>
+                                @endif
                             </div>
                             <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
                                 <table class="table">
@@ -114,8 +123,31 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="tab-pane fade" id="list-acc-details" role="tabpanel" aria-labelledby="list-settings-list">
-
+                            <div class="tab-pane fade show active" id="list-acc-details" role="tabpanel" aria-labelledby="list-settings-list">
+                                <h3 class="text-two font-weight-400 ">My profile</h3>
+                                <div class="col-md-6 mt-4">
+                                <form method="POST" action="{{route('prof')}}">
+                                    @csrf
+                                        <div class="form-group">
+                                            
+                                            <div class="md-form">
+                                                
+                                                <input name="name" type="text" class="form-control" value="{{Auth::user()->name}}">
+                                                <label >Name</label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="md-form">
+                                                <label>Mobile</label>
+                                                <input name="mobile" type="number" class="form-control" value="{{Auth::user()->mobile_no}}">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-sm btn-block indigo" >Update</button>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>

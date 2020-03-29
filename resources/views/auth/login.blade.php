@@ -36,11 +36,11 @@
 
 
                                 <!-- Sign in button -->
-                                <button class="btn btn-shadow my-4  btn-block font-weight-bold" type="submit" style="color: #002E50!important;"><a href="{{url('userpanel')}}" style="color: #002E50!important;">Sign in</a> </button>
+                                <button class="btn btn-shadow my-4  btn-block font-weight-bold" type="submit" style="color: #002E50!important;">Sign in </button>
                                 <div class="d-flex justify-content-around">
                                     <div>
                                         <!-- Forgot password -->
-                                    <a href="" class="web-color font-weight-bold">Forgot password?</a>
+                                    <a href="{{route('password.request')}}" class="web-color font-weight-bold">Forgot password?</a>
                                     </div>
                                     <div class="">
                                         <p> <a href="{{url('register')}}" class="web-color font-weight-bold">Not a member?
@@ -54,10 +54,10 @@
 
                                 <!-- Social login -->
                                 <p class="web-color">or sign in with:</p>
-                                <a type="button" class="btn-floating btn-fb login_btn pt-1 btn-sm">
+                            <a href="{{url('/redirect/facebook')}}"   class="btn-floating btn-fb login_btn pt-1 btn-sm">
                                     <i class="fa fa-facebook-f  pt-2 mt-1" style=" color:#3b5998!important ;"></i>
                                 </a>
-                                <a type="button" class="btn-floating btn-gplus login_btn  btn-sm">
+                                <a href="{{url('/redirect/google')}}" class="btn-floating btn-gplus login_btn  btn-sm">
                                     <i class="fa fa-google-plus  pt-2 mt-1 text-center" style=" color:#dd4b39!important ;"></i>
                                 </a>
 

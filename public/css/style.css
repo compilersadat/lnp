@@ -1,17 +1,17 @@
-.btn-customs{
+.btn-customs {
     border-radius: 34px!important;
-    background:#FE4040 !important;
-
+    background: #FE4040 !important;
     /*border-radius: 37px!important;*/
     /*background: #BE0B28;*/
     /*box-shadow: inset -5px -5px 24px #89081d!important;,*/
     /*inset 5px 5px 24px #f30e33;*/
 }
-.nav-link{
-    font-weight: 700;
-    color:#000!important; ;
-}
 
+.nav-link {
+    font-weight: 700;
+    color: #000!important;
+    ;
+}
 
 .nav-link::before {
     transition: 500ms;
@@ -29,66 +29,103 @@
 .nav-link-ltr:hover::before {
     width: 100%;
 }
+
+
 /*body{*/
+
+
 /*    font-family: 'Open Sans', sans-serif!important;*/
+
+
 /*}*/
+
+
 /*@font-face {*/
+
+
 /*    font-family: Heading!important;*/
+
+
 /*    src: url(../font/hotpizza.ttf)!important;*/
+
+
 /*}*/
+
+
 /*.font_head{*/
+
+
 /*    font-family: Heading!important;*/
+
+
 /*}*/
-.btn-shadow{
+
+.btn-shadow {
     border-radius: 37px!important;
     /*background: #ffffff!important;*/
     /*box-shadow:  5px 5px 10px #c7c7c7!important;,*/
     /*-5px -5px 10px #ffffff!important;*/
 }
-.card_style{
+
+.card_style {
     border-radius: 5px!important;
     background: #ffffff;
-    box-shadow:  5px 5px 10px #c7c7c7,
-    -5px -5px 10px #ffffff!important;
+    box-shadow: 5px 5px 10px #c7c7c7, -5px -5px 10px #ffffff!important;
 }
-.web-color{
-    color:#3c4043!important;
+
+.web-color {
+    color: #3c4043!important;
 }
-.bg-color-se{
-    background:#002E50!important ;
+
+.bg-color-se {
+    background: #002E50!important;
 }
-.bg-color{
-    background:#F9F9F9!important;
+
+.bg-color {
+    background: #F9F9F9!important;
 }
-.web-color_se{
-    color:#F8CB00!important ;
+
+.web-color_se {
+    color: #F8CB00!important;
 }
-.btn-inside{
+
+.btn-inside {
     border-radius: 34px!important;
     background: #ffffff;
-    box-shadow: inset 5px 5px 13px #d6d6d6,
-    inset -5px -5px 13px #ffffff!important;
+    box-shadow: inset 5px 5px 13px #d6d6d6, inset -5px -5px 13px #ffffff!important;
 }
-.cat-style::after{
+
+.cat-style::after {
     content: "";
     width: 200px;
     background: #FF1E56;
 }
+
+
 /*.pizza{*/
+
+
 /*    font-family: 'Trade Winds', cursive!important;*/
+
+
 /*}*/
-.menu{
+
+.menu {
     background-image: url('../svg/resturant/menubanner.jpg');
     background-repeat: no-repeat;
 }
+
 .ribbon {
     position: absolute;
-    right: -5px; top: -5px;
+    right: -5px;
+    top: -5px;
     z-index: 1;
     overflow: hidden;
-    width: 75px; height: 75px;
+    width: 75px;
+    height: 75px;
     text-align: right;
 }
+
 .ribbon span {
     font-size: 10px;
     font-weight: bold;
@@ -104,27 +141,35 @@
     background: linear-gradient(#FF1E56 0%, #FF1E56 100%);
     box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
     position: absolute;
-    top: 19px; right: -21px;
+    top: 19px;
+    right: -21px;
 }
+
 .ribbon span::before {
     content: "";
-    position: absolute; left: 0px; top: 100%;
+    position: absolute;
+    left: 0px;
+    top: 100%;
     z-index: -1;
     border-left: 3px solid #FF1E56;
     border-right: 3px solid transparent;
     border-bottom: 3px solid transparent;
     border-top: 3px solid #FF1E56;
 }
+
 .ribbon span::after {
     content: "";
-    position: absolute; right: 0px; top: 100%;
+    position: absolute;
+    right: 0px;
+    top: 100%;
     z-index: -1;
     border-left: 3px solid transparent;
     border-right: 3px solid #FF1E56;
     border-bottom: 3px solid transparent;
     border-top: 3px solid #FF1E56;
 }
-.btn-floating{
+
+.btn-floating {
     position: relative;
     z-index: 1;
     display: inline-block;
@@ -134,120 +179,131 @@
     vertical-align: middle;
     cursor: pointer;
     border-radius: 50%;
-    -webkit-box-shadow: 0 5px 11px 0 rgba(0,0,0,0.18), 0 4px 15px 0 rgba(0,0,0,0.15);
-    box-shadow: 0 5px 11px 0 rgba(0,0,0,0.18), 0 4px 15px 0 rgba(0,0,0,0.15);
+    -webkit-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+    box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
     -webkit-transition: all .2s ease-in-out;
     transition: all .2s ease-in-out;
     width: 47px;
     height: 47px;
 }
-.btn i{
+
+.btn i {
     display: inline-block;
     width: inherit;
     color: #fff;
     text-align: center;
     font-size: 1.25rem!important;
     line-height: 47px;
-
 }
-.btn-fb{
+
+.btn-fb {
     background: #fff !important;
-
 }
-.btn-tw{
+
+.btn-tw {
     background: #55acee !important;
 }
-.btn-gplus{
-    background-color: #fff !important;
 
+.btn-gplus {
+    background-color: #fff !important;
 }
-.btn-li
-{
+
+.btn-li {
     background-color: #0082ca !important
 }
-.social_card{
+
+.social_card {
     border-radius: 5px!important;
     background: #ffffff;
     box-shadow: none!important;
 }
-.btn-inside_se{
+
+.btn-inside_se {
     /*border-radius: 10px!important;*/
     /*background: #ffffff;*/
     /*box-shadow: inset -9px -9px 18px #d6d6d6,*/
     /*inset 9px 9px 18px #ffffff!important;*/
     border-radius: 50px!important;
     background: #ffffff!important;
-    box-shadow: inset 5px 5px 8px #cccccc,
-    inset -5px -5px 8px #ffffff!important;
+    box-shadow: inset 5px 5px 8px #cccccc, inset -5px -5px 8px #ffffff!important;
 }
 
-.login_btn{
+.login_btn {
     border-radius: 50px!important;
     background: #ffffff;
-    box-shadow:  5px 5px 46px #b0b0b0,
-    -5px -5px 46px #ffffff!important;
+    box-shadow: 5px 5px 46px #b0b0b0, -5px -5px 46px #ffffff!important;
 }
-.border-right{
+
+.border-right {
     border-right: 1px solid #777777;
 }
 
-.border-bottom{
+.border-bottom {
     border-bottom: 1px solid #E6E6E6;
 }
-.list-group-item.active{
-    background:#002E50 !important;
+
+.list-group-item.active {
+    background: #002E50 !important;
     display: block;
     padding: 10px 15px;
-    color: rgba(0,0,0,.9);
+    color: rgba(0, 0, 0, .9);
     line-height: 20px;
     text-transform: none;
     font-size: 14px;
-    font-weight: 600;    border: none;
+    font-weight: 600;
+    border: none;
     border-radius: 0px;
 }
-.list-group-item{
+
+.list-group-item {
     border: none!important;
 }
-.icon-style{
+
+.icon-style {
     color: #002E50!important;
     transition: 1s linear;
-
-
 }
-.dash-hover:hover{
-    color:#002E50!important;
+
+.dash-hover:hover {
+    color: #002E50!important;
     text-decoration: none;
-
 }
-.dash-card{
+
+.dash-card {
     transition: all 1s linear;
     cursor: pointer;
 }
-.dash-card:hover{
+
+.dash-card:hover {
     background: #F1F1F1!important;
     transition: 1s linear;
 }
-.font-size-40{
+
+.font-size-40 {
     font-size: 40px;
 }
-.dash-card:hover .icon-style{
+
+.dash-card:hover .icon-style {
     color: #002E50!important;
     transition: 1s linear;
-
 }
-.edit-add:hover{
+
+.edit-add:hover {
     color: #002E50!important;
     text-decoration: none;
 }
-.btn-color{
+
+.btn-color {
     background: #ff1e56!important;
     color: #fff!important;
     border-radius: 50px!important;
 }
-.slider-text{
+
+.slider-text {
     font-size: 70px!important;
 }
-.slider-spacing{
+
+.slider-spacing {
     padding-left: 3rem!important;
     padding-right: 3rem!important;
     padding-top: 1rem !important;
@@ -255,14 +311,15 @@
     margin-right: 3rem !important;
     margin-left: 3rem !important;
 }
-.navbar-brand{
+
+.navbar-brand {
     padding-left: 3rem;
 }
+
 @media only screen and (max-width: 600px) {
     .slider-text {
         font-size: 200% !important;
     }
-
     .slider-spacing {
         padding-left: 0rem !important;
         padding-right: 0rem !important;
@@ -271,17 +328,18 @@
         margin-right: 0rem !important;
         margin-left: 0rem !important;
     }
-    .slider-img{
+    .slider-img {
         margin-bottom: 2rem;
     }
-    .navbar-brand{
+    .navbar-brand {
         padding-left: 0rem;
     }
-    .footer{
+    .footer {
         background: #002E50!important;
     }
 }
-.footer{
+
+.footer {
     background-image: url("../svg/resturant/footer.jpg");
     background-size: cover;
 }

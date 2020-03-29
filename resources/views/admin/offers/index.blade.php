@@ -34,6 +34,7 @@
                                     <thead>
                                     <tr>
                                         <th>Offer Name</th>
+                                        <th>Ribbon Text</th>
                                         <th>Day</th>
                                         <th>Description</th>
                                         <th>Actual Price</th>
@@ -46,6 +47,7 @@
                                     @foreach (App\Offer::all() as $item)
                                         <tr>
                                         <td>{{$item->name}}</td>
+                                        <td>{{$item->ribben}}</td>
                                         <td>{{$item->day}}</td>
                                         <td>{{$item->deiscription}}</td>
                                         <td>{{$item->a_price}}</td>

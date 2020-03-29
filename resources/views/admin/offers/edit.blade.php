@@ -38,6 +38,9 @@
                                         <input type="text" name="name" class="form-control input-flat" placeholder="Enter Offer Name " value="{{$offer->title}}">
                                         </div>
                                         <div class="form-group">
+                                        <input type="text" name="ribbon" class="form-control input-flat" placeholder="Ribbon Text" value="{{$offer->ribben}}">
+                                        </div>
+                                        <div class="form-group">
                                             <input type="text" name="day" class="form-control input-flat" placeholder="Enter Day Name " value="{{$offer->day}}">
                                         </div>
                                         <div class="form-group">

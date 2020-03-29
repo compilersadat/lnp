@@ -33,5 +33,15 @@ return [
     'sparkpost' => [
         'secret' => env('SPARKPOST_SECRET'),
     ],
+    'google' => [
+        'client_id'     => env('GOOGLE_CLIENT_ID'),
+        'client_secret' => env('GOOGLE_CLIENT_SECRET'),
+        'redirect'      => env('GOOGLE_REDIRECT')
+    ],
+    'facebook' => [
+        'client_id' => '226002932101468',
+        'client_secret' => 'aeb7ebe6da32368ee37247e7c6a8ada8',
+        'redirect' => 'http://localhost/lnp/public/callback/facebook',
+    ],
 
 ];

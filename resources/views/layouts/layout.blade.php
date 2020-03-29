@@ -95,19 +95,25 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link nav-link-ltr px-3" href="{{url('menu')}}">Menu </a>
+                        <a class="nav-link nav-link-ltr px-3" href="{{route('menu')}}">Menu </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link nav-link-ltr  px-3" href="{{url('ourhistory')}}">Our Story</a>
+                        <a class="nav-link nav-link-ltr  px-3" href="">Our Story</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link nav-link-ltr  px-3" href="{{url('contactus')}}">Contact Us</a>
+                        <a class="nav-link nav-link-ltr  px-3" href="{{route('contact')}}">Contact Us</a>
                     </li>
                     <li class="nav-item d-none d-md-block">
+                        
                         <a class="nav-link px-3">
-                            <input type="search " class="px-3" placeholder="Search Pizza"><i class="fa fa-search ml-2 py-2 px-2 white-text" style="background: #FF1E56;font-size: 15px;"></i>
+                        <form method="POST" action="{{route('search')}}">
+                        @csrf
+                            <input type="text " name="title" class="px-2" placeholder="Search Pizza" style="height:2rem;margin:0px">
+                            <button type="submit" class="fa fa-search white-text btn" style="background: #FF1E56;padding-left: 0.7rem;padding-right: 0.7rem;padding-bottom: 0.4rem;padding-top: 0.4rem;margin: 0px;"></button>
+                        </form>
+
                         </a>
-                    </li>
+                                        </li>
 
                 </ul>
                 <!-- Links -->
