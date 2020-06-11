@@ -39,7 +39,7 @@ class CoupenController extends Controller
     {
         //
         $this->validate($request,[
-            'code'=>'required',
+            'code'=>'required|unique:coupens',
             'type'=>'required',
             'value'=>'required',
             'expiry'=>'required',
@@ -91,7 +91,7 @@ class CoupenController extends Controller
     {
         //
         $this->validate($request,[
-            'code'=>'required',
+            'code'=>'required|unique:coupens',
             'type'=>'required',
             'value'=>'required',
             'expiry'=>'required',
@@ -120,5 +120,14 @@ class CoupenController extends Controller
         if(Coupen::where('id',$id)->delete()){
             return redirect()->back();
         }
+    }
+    
+    
+    public function checkCoupen(Request $request){
+    	$coupen=Coupen::where('code',$request->code)->first();
+    	$exp=date('Y-m-d',strtotime($coupen->expiry));
+    	$now=date('Y-m-d',strtotime(now()));
+    	
+    	return $exp-$now;
     }
 }

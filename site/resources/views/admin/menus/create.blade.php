@@ -1,7 +1,6 @@
 @extends('admin.layouts.layout')
 @section('content')
-    <section>
-        <div class="content-body">
+   
 
             <div class="row page-titles mx-0">
                 <div class="col p-md-0">
@@ -48,6 +47,22 @@
                                                 @endforeach
                                             </select>
                                         </div>
+                                        <div class="form-group">
+                                        <label>No of free toppings:</label>
+                                            <input type="number" class="form-control input-flat" placeholder="No of free toppings" name="free_toppings" value="0">
+                                        </div>
+                                        <div class="form-group">
+                                        <label>No of free sauces:</label>
+                                            <input type="number" class="form-control input-flat" placeholder="No of free sauces" name="free_sauces" value="0">
+                                        </div>
+                                        <div class="form-group">
+                                        <label>No of free pops:</label>
+                                            <input type="number" class="form-control input-flat" placeholder="No of free pops" name="free_pops" value="0">
+                                        </div>
+                                        <div class="form-group">
+                                        <label>No of free ranch</label>
+                                            <input type="number" class="form-control input-flat" placeholder="No of free ranch" name="free_ranch" value="0">
+                                        </div>
                                         <h4 class="">
                                             Prices
                                         </h4>
@@ -69,12 +84,17 @@
                                             </div>
                                         </div>
 
+                                       
                                         <div class="form-group">
-                                            <label>Customizable:</label><br>
-                                            <input type="radio" id="male" name="custom" value="1">
-                                            <label for="male">Yes</label>
-                                            <input type="radio" id="female" name="custom" value="0">
-                                            <label for="female">No</label><br>
+                                            <select class="form-control" id="sel1" name="custome">
+                                                <option value="selected">Select Customization</option>
+                                                <option value="0">No Customization</option>
+                                                <option value="1">Dough/Base Sauce+Toppings+Special Instructions</option>
+                                                <option value="2">Dough/Base Sauce+Toppings+Special Instructions+Pops</option>
+                                                <option value="3">Sauces</option>
+                                                <option value="4">Sauces+toppings</option>
+                                                <option value="5">Classic/Breaded+Dipping Sauces</option>
+                                            </select>
                                         </div>
                                         <div class="text-center">
                                             <button type="" class="btn px-5 btn-primary">Add Now</button>
@@ -87,7 +107,5 @@
 
                 </div>
             </div>
-        </div>
-
-    </section>
+       
 @endsection

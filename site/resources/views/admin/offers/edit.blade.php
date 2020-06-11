@@ -1,8 +1,5 @@
-
 @extends('admin.layouts.layout')
 @section('content')
-    <section>
-        <div class="content-body">
 
             <div class="row page-titles mx-0">
                 <div class="col p-md-0">
@@ -45,7 +42,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Description:</label>
-                                            <textarea class="form-control" rows="4" id="disc" name="description"></textarea>
+                                            <textarea class="form-control" rows="4" id="disc" name="description">{{$offer->description}}</textarea>
                                         </div>
                                         <img src="{{asset('uploads/offers/'.$offer->image)}}" width="50" height="50" class="mb-1">
 
@@ -74,7 +71,5 @@
 
                 </div>
             </div>
-        </div>
-
-    </section>
+      
 @endsection

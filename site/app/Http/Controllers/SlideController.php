@@ -42,14 +42,15 @@ class SlideController extends Controller
     public function store(Request $request)
     {
          $this->validate($request,[
-            'title'=>'required',
-           
+            'image'=>'required',
+           'type'=>'required',
             
 
         ]);
         $slide=new Slide();
         $slide->title=$request->title;
         $slide->description=$request->description;
+        $slide->type=$request->type;
         if($request->file('image')) {
             $upload = $request->file('image');
             $fileformat = time() . '.' . $upload->getClientOriginalName();
@@ -100,7 +101,8 @@ class SlideController extends Controller
     public function update(Request $request, $id)
     {
          $this->validate($request,[
-            'title'=>'required',
+            'image'=>'required',
+            'type'=>'required',
            
             
 
@@ -108,7 +110,7 @@ class SlideController extends Controller
          $slide=Slide::findOrFail($id);
          $slide->title=$request->title;
          $slide->description=$request->description;
-         
+         $slide->type=$request->type;
          if($request->file('image')) {
             $upload = $request->file('image');
             $fileformat = time() . '.' . $upload->getClientOriginalName();

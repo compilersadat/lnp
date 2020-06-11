@@ -46,6 +46,14 @@ class ToppingValueController extends Controller
         $topping->name=$request->name;
         $topping->count=$request->count;
         $topping->type=$request->type;
+        if($request->file('image')) {
+            $upload = $request->file('image');
+            $fileformat = time() . '.' . $upload->getClientOriginalName();
+            if ($upload->move('uploads/toppings/', $fileformat)) {
+                $topping->image = $fileformat;
+            }
+           
+        }
         if($topping->save()){
             return redirect()->route('toppings.index');
         }
@@ -96,6 +104,14 @@ class ToppingValueController extends Controller
         $topping->name=$request->name;
         $topping->count=$request->count;
         $topping->type=$request->type;
+         if($request->file('image')) {
+            $upload = $request->file('image');
+            $fileformat = time() . '.' . $upload->getClientOriginalName();
+            if ($upload->move('uploads/toppings/', $fileformat)) {
+                $topping->image = $fileformat;
+            }
+           
+        }
         if($topping->update()){
             return redirect()->route('toppings.index');
         }

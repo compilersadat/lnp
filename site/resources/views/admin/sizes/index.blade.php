@@ -1,6 +1,6 @@
 @extends('admin.layouts.layout')
 @section('content')
-    <div class="content-body">
+   
 
         <div class="row page-titles mx-0">
             <div class="col p-md-0">
@@ -20,7 +20,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-7">
-                                    <h4 class="card-title">All Categories</h4>
+                                    <h4 class="card-title">All Sizes</h4>
 
                                 </div>
                                 <div class="col-md-5 text-right">
@@ -65,6 +65,5 @@
             </div>
         </div>
         <!-- #/ container -->
-    </div>
 
 @endsection

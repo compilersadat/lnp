@@ -107,7 +107,7 @@ class OfferController extends Controller
         //
         $this->validate($request,[
             'name'=>'required',
-            'discription'=>'required',
+            'description'=>'required',
             'a_price'=>'required',
             'o_price'=>'required',
         ]);

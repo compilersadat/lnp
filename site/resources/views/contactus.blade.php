@@ -8,9 +8,8 @@
                     Contact
                 </h5>
                 <h2 class=" h2-responsive h2">
-                    Are Easy To Find
+                        Get In Touch Any Time
                 </h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur consequatur dicta ex facilis</p>
             </div>
         </div>
 
@@ -23,7 +22,12 @@
                     <img src="{{asset('svg/resturant/contactside.jpg')}}" class="img-fluid img">
                 </div>
                 <div class="col-md-6 ml-5">
-                    <h3 class="h3-responsive h3 pizza web-color pb-4">Conatct Us</h3>
+                @include('partials.alerts')
+
+    @foreach ($errors->all() as $error)
+        <div class="alert alert-danger"> {{ $error }}</div>
+    @endforeach
+            <h3 class="h3-responsive h3 pizza web-color pb-4">Conatct Us</h3>
                     <form class="" style="color: #757575;" id="contact-form" name="contact-form" action="{{ route('mail')}}" method="POST">
                         @csrf
                         
@@ -47,7 +51,7 @@
                             </div>
                             <div class="col-6">
                                 <div class="md-form">
-                                    <input type="text"  id="subject" name="Subject" placeholder="Enter subject" class="form-control text-center   btn-inside_se" style="border:none;">
+                                    <input type="text"  id="subject" name="subject" placeholder="Enter subject" class="form-control text-center   btn-inside_se" style="border:none;">
 
                                 </div>
                             </div>

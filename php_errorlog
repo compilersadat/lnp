@@ -1,0 +1,2 @@
+[25-Apr-2020 11:01:08 UTC] PHP Fatal error:  Cannot use isset() on the result of an expression (you can use "null !== expression" instead) in /home/concordw/public_html/site/storage/framework/views/8656f9c4b3d6e5a537562bb7def695c98335685c.php on line 53
+[26-May-2020 09:45:10 UTC] PHP Fatal error:  Cannot use App\Mail\Order as Order because the name is already in use in /home/concordw/public_html/site/app/Http/Controllers/PayPalController.php on line 16

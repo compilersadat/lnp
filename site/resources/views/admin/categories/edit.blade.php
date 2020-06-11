@@ -1,4 +1,3 @@
-
 @extends('admin.layouts.layout')
 @section('content')
     <section>
@@ -36,6 +35,15 @@
                                     @method('PATCH')
                                         <div class="form-group">
                                         <input type="text" name="name" class="form-control input-flat" placeholder="Enter Category Name " value="{{$cat->name}}">
+                                        </div>
+                                        <div class="form-group">
+                                            <select class="form-control" id="sel1" name="parent_id" required>
+                                                <option value="0" @if($cat->parent_id==0) selected @endif>No Parent</option>
+                                                @foreach(@App\Category::where('parent_id',0)->get() as $row)
+                                                	
+                                            		<option value="{{$row->id}}"  @if($row->id==$cat->parent_id) selected @endif>{{$row->name}}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
                                         <img src="{{asset('uploads/cats/'.$cat->image)}}" width="50" height="50" class="mb-1">
 

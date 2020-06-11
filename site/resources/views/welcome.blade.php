@@ -15,6 +15,15 @@
 
 .active, .collapsible:hover {
 }
+.title {
+  font-weight: 800;
+  color: transparent;
+  background: url("svg/4f39103da156fb7e479abd6355932e88.jpg") repeat;
+  background-position: 40% 50%;
+  -webkit-background-clip: text;
+  position: relative;
+  text-align: center;
+}
 
 .content {
   padding: 0 18px;
@@ -24,11 +33,13 @@
 </style>
 <section class="mt-5">
     <!--Carousel Wrapper-->
-    <div id="carousel-example-1z" class="carousel slide carousel-fade mt-5 pt-5" data-ride="carousel">
+    <div id="carousel-example-1z" class="carousel slide carousel-fade mt-4 pt-4" data-ride="carousel">
         <!--Indicators-->
         <ol class="carousel-indicators">
-            <li data-target="#carousel-example-1z" data-slide-to="0" class="active"></li>
-            <li data-target="#carousel-example-1z" data-slide-to="1"></li>
+        @foreach(@App\Slide::orderBy('id','DESC')->get() as $key=>$row)
+            <li data-target="#carousel-example-1z" data-slide-to="{{$key}}" @if($key==0) class="active" @endif></li>
+            
+        @endforeach
         </ol>
         <!--/.Indicators-->
         <!--Slides-->
@@ -36,7 +47,8 @@
             <!--First slide-->
             @foreach(@App\Slide::orderBy('id','DESC')->get() as $key=>$row)
 
-            <div class="carousel-item  py-4 @if($key==0) active @endif " style="background:#002E50;">
+            <div class="carousel-item @if($row->type=="slide") py-5 @else py-3 @endif @if($key==0) active @endif " @if($row->type=="slide") style="background:#002E50;" @endif>
+            	@if($row->type=="slide")
                 <div class="slider-spacing">
                     <div class="row px-5">
                         <div class="col-md-5  col-sm-4">
@@ -49,14 +61,17 @@
                                 {!! $row->description !!}
                             </p>
                             <div class="mt-2">
-                                <a href="" class="btn px-5 btn-color font-weight-bold mb-5" >
-                                    Order Now
+                            <a href="{{url('menus')}}" class="btn px-5 btn-color font-weight-bold mb-5" >
+                                    Explore More
                                 </a>
                             </div>
 
                         </div>
                     </div>
                 </div>
+                @else
+                <img class="w-100 d-block" src="{{asset('uploads/slides/'.$row->image)}}">
+                @endif
 
 
             </div>
@@ -78,43 +93,60 @@
     </div>
 </section>
     <!--/.Carousel Wrapper-->
-    <div class="container my-5">
-        <section class="vertical-center-4 slider ">
-            @foreach (@App\Category::all() as $item)
-            <div>
-            <a class="" href="{{route('shop',$item->id)}}">
-                    <!-- Card -->
-                    <div class=" card_style bg-color mb-3">
-                        <!-- Card content -->
+    <div class="container my-3  ">
+    <div class="text-center pb-3">
+    	<h1 class="h1 h1-responsive title">LATE NIGHT PIZZA<h1>
+    	<h2 class="h2 h2-responsive font-weight-bold">We Serve Best food in Scarborough</h2>
+    </div>
+        <div class="row">
+            <div class="col-md-2">
+                <h3 class="h3 h3-responsive pb-4 web-color font-weight-bold" >CATEGORIES
 
-                        <div class="card-body ">
-                            <div class="text-center m-auto">
-                                <img src="{{asset('uploads/cats/'.$item->image)}}" class=" m-auto img-fluid img">
-
-                            </div>
-
-                            <!-- Title -->
-                            <div class=" pt-2 text-center">
-                                <h6 class="font-weight-bold web-color h6 h6-responsive  pizza" >{{$item->name}}    </h6>
-
-                            </div>
-
-
-                        </div>
-
-                    </div>
-
-                    <!-- Card -->
-                </a>
-
+                    <hr class="bg-red m-0 p-0">
+                </h3>
             </div>
-            @endforeach
-           
-           
+            <a href="{{url('menus')}}">
+            <div class="col-md-3 ml-auto   text-right pt-2">
+            <a href="{{url('menus')}}" class=" btn-md px-5 text-danger explore-btn font-weight-bold">Explore More</a>
+            </div>
+            </a>
+        </div>
+        <section class="  ">
+            <div class="row">
+                @foreach (@App\Category::where('parent_id',0)->get() as $item)
+                        <!-- Card -->
+                        <div class=" col-lg-3 col-md-4     mb-3">
+                            <!-- Card content -->
+                            <a class="" href="{{route('shop',$item->id)}}">
+                            <div class="card  card-cat"  style="background-image:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url({{asset('uploads/cats/'.$item->image)}})!important;background-size:cover!important;">
 
+                            <div class="card-body ">
+                                <div class="text-center m-auto">
+                                    {{-- <img src="{{asset('uploads/cats/'.$item->image)}}" class=" m-auto cat-img img-fluid img"> --}}
+    
+                                </div>
+    
+                                <!-- Title -->
+                                <div class=" pt-5 mt-5 text-center">
+                                    <h4 class="font-weight-bold white-text h4 h4-responsive pt-2 card-cont text-uppercase" style="font-family: 'Bitter', serif;letter-spacing:1px;@if($item->id==3)font-size:129%;@else @if($item->id==11 || $item->id==12 ) font-size:107%; @else font-size:135%; @endif @endif">{{$item->name}}    </h4>
+    
+                                </div>
+    
+    
+                            </div>
+                            </div>
+                          </a>
+                        </div>
+                        @endforeach
+                        <!-- Card -->    
+                </div>
         </section>
 
     </div>
+    
+    <section class="py-5  text-center">
+    	<a class="btn btn-lg " href="{{url('menus')}}" style="border:2px solid #002E50;color:#002E50!important"><b>See Menu & Order</b></a>
+    </section>
 
    
     <section class="menu py-5 my-5">
@@ -123,11 +155,11 @@
             <p class="text-center white-text">Everyday Is Special  </p>
             <div class="row py-3">
                 @foreach (@App\Offer::orderBy('id','ASC')->get() as $item)
-                <div class="col-md-4 mt-2 ">
+                <div class="col-lg-4 col-md-6 mt-2 ">
 
                     <!-- Card -->
-                    <div class="card  ">
-                        <div class="ribbon"><span>{{$item->ribben}}</span></div>
+                    <div class="card  specail-card" @if($item->code!=date('D',strtotime(now()))) style="background-color:#edf2f5" @endif>
+                        <div class="ribbon"><span style="font-size:8px;">{{$item->ribben}}</span></div>
 
                         <div class="row m-0 p-0">
                             <div class="col-md-5 col-5 m-0 p-0">
@@ -159,7 +191,12 @@
 
 
                                     <!-- Button -->
-                                    <a href="{{url('cart')}}" class="btn btn-inside btn-sm font-weight-bold web-color mt-2" style="color: #002E50!important;" >Add To Cart</a>
+                                    <form method="POST" action="{{route('add.cart',$item->id)}}">
+                                        @csrf
+                                        <input type="hidden" name="type" value="offer"/>
+                                        <button type="submit" class="btn btn-inside btn-sm font-weight-bold web-color mt-2" @if($item->code!=date('D',strtotime(now()))) disabled @endif style="color: #002E50!important;" >Add To Cart</button>
+
+                                    </form>
 
                                 </div>
 
@@ -195,4 +232,13 @@
 });
     });
     </script>
+    <script>
+        $(document).ready(function() {
+          $('.explore-btn').hover(function() {
+            $(this).html('Our Delicious Menu');
+          }, function() {
+            $(this).html('Explore More');
+          });
+        });
+      </script>
 @endsection

@@ -19,7 +19,7 @@
                             @csrf
                                 <!-- Email -->
                                 <div class="md-form ">
-                                    <input type="email" id="" name="email" placeholder="Enter Email" class="form-control text-center   btn-inside_se {{ $errors->has('email') ? ' is-invalid' : '' }}" style="border:none;" value="{{old('email')}}">
+                                    <input type="text" id="" name="email" placeholder="Enter  Email or Number" class="form-control text-center   btn-inside_se {{ $errors->has('email') ? ' is-invalid' : '' }}" style="border:none;" value="{{old('email')}}">
                                     @if ($errors->has('email'))
                                     <span class="p-0 m-0 text-danger text-left mb-4"> <strong>{{ $errors->first('email') }}</strong></span>
                                     @endif

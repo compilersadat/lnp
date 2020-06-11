@@ -1,8 +1,5 @@
-
 @extends('admin.layouts.layout')
 @section('content')
-    <section>
-        <div class="content-body">
 
             <div class="row page-titles mx-0">
                 <div class="col p-md-0">
@@ -31,7 +28,7 @@
                                     </div>
                                 </div>
                                 <div class="basic-form">
-                                <form method="POST"  action="{{route('toppings.update',$topping->id)}}">
+                                <form method="POST"  action="{{route('toppings.update',$topping->id)}}" enctype="multipart/form-data">
                                     @csrf
                                     @method('PATCH')
                                         <div class="form-group">
@@ -48,6 +45,16 @@
                                         <div class="form-group">
                                             <input type="number" name="count" class="form-control input-flat" placeholder="count" value="{{$topping->count}}">
                                         </div>
+                                        <img src="{{asset('uploads/topping/'.$topping->image)}}" width="50" height="50" class="mb-1">
+
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend"><span class="input-group-text">Upload</span>
+                                            </div>
+                                            <div class="custom-file">
+                                                <input type="file" name="image" class="custom-file-input">
+                                                <label class="custom-file-label">Select Image</label>
+                                            </div>
+                                        </div>
                                         <div class="text-center">
                                             <button type="submit" class="btn px-5 btn-primary">Edit Now</button>
                                         </div>
@@ -59,7 +66,5 @@
 
                 </div>
             </div>
-        </div>
-
-    </section>
+       
 @endsection

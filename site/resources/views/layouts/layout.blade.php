@@ -3,10 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LateNightPizza</title>
+    <title>Late Night Pizza - Takeaway food - Scarborough - Order online</title>
+    <meta name="description" content="Order Online for Takeout or Book a Table. Here at Late Night Pizza - Scarborough you'll experience delicious Burger, Pizza, Salads cuisine. Try our mouth-watering dishes, carefully prepared with fresh ingredients! At Late Night Pizza, our recipe for success is simple – Great food & care makes customers return every time.">
     <link rel="icon" href="svg/logo.png" type="image/gif" sizes="60x60">
     <link rel="stylesheet " href="{{url('css/style.css')}}">
+    <link rel="stylesheet " href="{{url('css/custome.css')}}">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bitter&display=swap" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
 {{--    <link href="https://fonts.googleapis.com/css?family=Trade+Winds&display=swap" rel="stylesheet">--}}
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -44,6 +47,58 @@
 
 
 </style>
+<script type="application/ld+json">
+{
+	"@context": "https://schema.org",
+	"@type": "FastFoodRestaurant",
+	"name": "Late Night Pizza",
+	"address":[ {
+		"@type": "PostalAddress",
+		"streetAddress": "561 Markham Road, Scarborough, ON M1H 2A3",
+		"addressLocality": "Toronto",
+		"addressRegion": "ON",
+		"postalCode": "416"
+	},
+	{
+	"@type": "PostalAddress",
+		"streetAddress": "2655 Lawrence ave East, Scarborough, ON M1P SA3 .",
+		"addressLocality": "Toronto",
+		"addressRegion": "ON",
+		"postalCode": "416"
+	}],
+	"image": "https://latenightpizza.com/uploads/slides/1588970841.Website-banner-02-2041x810.jpg",
+	"telePhone": "416 431 0300",
+	"url": "https://latenightpizza.com/",
+	"paymentAccepted": [ "credit card", "paypal" ],
+	"openingHours": "Mo,Tu,We,Th,Fr,Sa 11:00-03:00",
+	"openingHoursSpecification": [ {
+		"@type": "OpeningHoursSpecification",
+		"dayOfWeek": [
+			"Monday",
+			"Tuesday",
+			"Wednesday",
+			"Thursday",
+			"Friday",
+			"Saturday"
+		],
+		"opens": "11:00",
+		"closes": "03:00"
+	} ],
+	"geo": {
+		"@type": "GeoCoordinates",
+		"latitude": "43.758267",
+		"longitude": "-79.224349"
+	},
+	"priceRange":"$$",
+    	"servesCuisine":"Lnp Special Pizza"
+
+}
+</script>
+
+
+
+
+
 </head>
 <body>
 {{--<section class="py-1" style="background: #002E50;">--}}
@@ -72,7 +127,7 @@
 {{--</section>--}}
 <section>
     <!--Navbar-->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top  " style="background: #fff;">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top  " style="background: #fff;padding:0px">
         <!-- Navbar brand -->
         <div class="container-fluid">
             <a class="navbar-brand  pr-3"  href="{{url('/')}}"><img src="{{asset('svg/logo.png')}}" width="80" height="80"></a>
@@ -90,9 +145,18 @@
 
             <!-- Collapsible content -->
             <div class="collapse navbar-collapse" id="basicExampleNav">
-
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item px-3 d-block d-md-none d-lg-none">
+                <a class="nav-link " href="{{url('menus')}}">See Menu & Order
+                  </a>
+                </li>
+              </ul>
               
                  <ul class="navbar-nav ml-auto  ">
+                 <li class="nav-item px-3 d-none d-md-block pt-3" >
+	                <a class="nav-link " style="border:2px solid #002E50;" href="{{url('menus')}}">See Menu & Order
+	                  </a>
+                </li>
                  <li class="nav-item px-3 pt-2" style="font-size:14px;color:#002E50;">
                      <a class="nav-link "><i class="fa fa-phone"></i> Call us now<br>
                      <b style="font-size:10px;" class="m-0 p-0">&ensp;&ensp; 416 431 0300 , 416 288 1616<br>
@@ -104,20 +168,27 @@
 			        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
 			          aria-haspopup="true" aria-expanded="false">My Account</a>
 			        <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-			         @if(!Auth::guard('web')->user())
+			         @guest
 			          <a class="dropdown-item" href="{{url('login')}}" >
 			          Login
-			          </a>
-			          @endif
-			           @if(Auth::guard('web')->user())
-			           <a class="dropdown-item" href="{{route('home')}}">My Profile</a>
-			            @endif
-			            <a class="dropdown-item" href="{{route('register')}}">Create Account</a>
+                </a>
+                <a class="dropdown-item" href="{{route('register')}}">Create Account</a>
+			          @endguest
+			           @auth
+                 <a class="dropdown-item" href="{{route('home')}}">My Profile</a>
+                 <a class="list-group-item list-group-item-action"  href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                          document.getElementById('logout-form').submit();">Logout</a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+			            @endauth
+			            
 			        </div>
 			      </li>
                    
                     <li class="nav-item px-3 pt-1">
-                        <a class="nav-link btn-floating  mx-1" style="background:red;padding-top:12px;font-size:18px;color:#fff!important;box-shadow:none;" href="{{route('cart')}}">
+                        <a class="nav-link btn-floating  mx-1" style="background:#002E50;padding-top:12px;font-size:18px;color:#fff!important;box-shadow:none;" href="{{route('cart')}}">
               <i class="fa fa-cart-plus"></i><sup style="color:#fff;margin-left:-3px;"> 
                 {{ count((array) session('cart')) }}</sup></a>
                     </li>
@@ -125,28 +196,7 @@
                     
                     
                     </ul>
-                <!-- Links -->
-                <!--<ul class="navbar-nav ml-auto pr-5 ">-->
-                <!--    @if(!Auth::guard('web')->user())-->
-                <!--    <li class="nav-item px-3">-->
-                <!--        <a class="nav-link  btn-shadow btn-color btn btn-sm px-5 font-weight-bold" href="{{url('login')}}" >Sign In</a>-->
-                <!--    </li>-->
-                <!--    @endif-->
-                <!--    @if(Auth::guard('web')->user())-->
-                <!--    <li class="nav-item px-3">-->
-                <!--        <a class="nav-link" href="{{route('home')}}">Welcome {{Auth::user()->name}}</a>-->
-                <!--    </li>-->
-                <!--    @endif-->
-                <!--    <li class="nav-link social_card px-3 d-none d-md-block">-->
-                <!--        <i class="fa fa-facebook  black-text "></i>-->
-                <!--    </li>-->
-                <!--    <li class="nav-link social_card px-3 d-none d-md-block">-->
-                <!--        <i class="fa fa-instagram  black-text"></i>-->
-                <!--    </li>-->
-                <!--    <li class="nav-link social_card px-3 d-none d-md-block">-->
-                <!--        <i class="fa fa-twitter  black-text"></i>-->
-                <!--    </li>-->
-                <!--</ul>-->
+               
 
 
             </div>
@@ -160,13 +210,13 @@
 </section>
 <!-- Footer -->
 <!-- Footer -->
-<footer class="page-footer font-small  pt-4" style="background:#002E50;">
+<footer class="page-footer font-small  pt-5" style="background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url({{asset('svg/resturant/footer.jpg')}});background-size:cover;">
 
   <!-- Footer Links -->
-  <div class="container text-center text-md-left">
+  <div class="container pt-2 text-center text-md-left">
 
     <!-- Grid row -->
-    <div class="row">
+    <div class="row pb-5">
 
       <!-- Grid column -->
       <div class="col-md-3 mx-auto">
@@ -175,7 +225,7 @@
         <h5 class="font-weight-bold text-uppercase mt-3 mb-4"><a href="{{url('/')}}">Late Night Pizza</a></h5>
         <ul class="list-unstyled">
           <li>
-            <a href="{{route('menu')}}">Menu</a>
+            <a href="{{route('menu')}}">See Menu & Order</a>
           </li>
           <li>
             <a href="#!">Our Story</a>
@@ -273,7 +323,8 @@
 
   
   <!-- Copyright -->
-  <div class="footer-copyright text-center pb-3 ">©2003-2020 Late Night Pizza, Inc. All right reserved.
+  <div class="footer-copyright text-center pb-3  ">
+<p class="white-text">© 2020 Copyright: powered by Innovibiz inc.</p>
   </div>
   <!-- Copyright -->
 

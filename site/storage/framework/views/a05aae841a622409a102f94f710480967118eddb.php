@@ -7,9 +7,8 @@
                     Contact
                 </h5>
                 <h2 class=" h2-responsive h2">
-                    Are Easy To Find
+                        Get In Touch Any Time
                 </h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur consequatur dicta ex facilis</p>
             </div>
         </div>
 
@@ -22,7 +21,12 @@
                     <img src="<?php echo e(asset('svg/resturant/contactside.jpg')); ?>" class="img-fluid img">
                 </div>
                 <div class="col-md-6 ml-5">
-                    <h3 class="h3-responsive h3 pizza web-color pb-4">Conatct Us</h3>
+                <?php echo $__env->make('partials.alerts', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
+    <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+        <div class="alert alert-danger"> <?php echo e($error); ?></div>
+    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            <h3 class="h3-responsive h3 pizza web-color pb-4">Conatct Us</h3>
                     <form class="" style="color: #757575;" id="contact-form" name="contact-form" action="<?php echo e(route('mail')); ?>" method="POST">
                         <?php echo csrf_field(); ?>
                         
@@ -46,7 +50,7 @@
                             </div>
                             <div class="col-6">
                                 <div class="md-form">
-                                    <input type="text"  id="subject" name="Subject" placeholder="Enter subject" class="form-control text-center   btn-inside_se" style="border:none;">
+                                    <input type="text"  id="subject" name="subject" placeholder="Enter subject" class="form-control text-center   btn-inside_se" style="border:none;">
 
                                 </div>
                             </div>

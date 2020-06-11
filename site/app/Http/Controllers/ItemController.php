@@ -42,16 +42,18 @@ class ItemController extends Controller
     {
         $this->validate($request,[
             'title'=>'required',
-            'disc'=>'required',
+            // 'disc'=>'required',
             'cat'=>'required',
         ]);
         $item=new Item();
         $item->title=$request->title;
         $item->description=$request->disc;
         $item->cat_id=$request->cat;
-        if($request->custom=="1"){
-            $item->is_custom=1;
-        }
+       $item->custome_type=$request->custome;
+       $item->free_toppings=$request->free_toppings;
+       $item->free_sauces=$request->free_sauces;
+       $item->free_pops=$request->free_pops;
+       $item->free_ranch=$request->free_ranch;
         if($request->file('image')) {
             $upload = $request->file('image');
             $fileformat = time() . '.' . $upload->getClientOriginalName();
@@ -111,13 +113,18 @@ class ItemController extends Controller
     {
         $this->validate($request,[
             'title'=>'required',
-            'disc'=>'required',
+            // 'disc'=>'required',
             'cat'=>'required',
         ]);
         $item=Item::where('id',$id)->first();
         $item->title=$request->title;
         $item->description=$request->disc;
         $item->cat_id=$request->cat;
+        $item->custome_type=$request->custome;
+        $item->free_toppings=$request->free_toppings;
+       $item->free_sauces=$request->free_sauces;
+       $item->free_pops=$request->free_pops;
+       $item->free_ranch=$request->free_ranch;
         if($request->file('image')) {
             $upload = $request->file('image');
             $fileformat = time() . '.' . $upload->getClientOriginalName();

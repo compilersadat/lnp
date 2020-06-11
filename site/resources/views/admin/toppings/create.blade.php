@@ -1,8 +1,6 @@
-
 @extends('admin.layouts.layout')
 @section('content')
-    <section>
-        <div class="content-body">
+ 
 
             <div class="row page-titles mx-0">
                 <div class="col p-md-0">
@@ -31,7 +29,7 @@
                                     </div>
                                 </div>
                                 <div class="basic-form">
-                                <form method="POST"  action="{{route('toppings.store')}}">
+                                <form method="POST"  action="{{route('toppings.store')}}" enctype="multipart/form-data">
                                     @csrf
                                         <div class="form-group">
                                             <input type="text" name="name" class="form-control input-flat" placeholder="Topping Name ">
@@ -47,6 +45,14 @@
                                         <div class="form-group">
                                             <input type="number" name="count" class="form-control input-flat" placeholder="count">
                                         </div>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend"><span class="input-group-text">Upload</span>
+                                            </div>
+                                            <div class="custom-file">
+                                                <input type="file" name="image" class="custom-file-input">
+                                                <label class="custom-file-label">Select Image</label>
+                                            </div>
+                                        </div>
                                         <div class="text-center">
                                             <button type="submit" class="btn px-5 btn-primary">Add Now</button>
                                         </div>
@@ -58,7 +64,5 @@
 
                 </div>
             </div>
-        </div>
-
-    </section>
+       
 @endsection

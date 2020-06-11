@@ -9,8 +9,7 @@
 
 .nav-link {
     font-weight: 700;
-    color:#002E50!important;
-  
+    color: #002E50!important;
 }
 
 .nav-link::before {
@@ -57,7 +56,7 @@ body {
 }
 
 .web-color {
-    color: #3c4043!important;
+    color: #002E50!important;
 }
 
 .bg-color-se {
@@ -285,6 +284,7 @@ body {
 .slider-text {
     font-size: 60px!important;
     font-family: 'Dancing Script', cursive!important;
+    letter-spacing: 7px!important;
 }
 
 .slider-spacing {
@@ -296,8 +296,331 @@ body {
     margin-left: 3rem !important;
 }
 
+.card-cont {
+    transition: all 1s;
+}
+
+.card-cat:hover .card-cont {
+    transform: scale(1.2);
+    text-shadow: 1px 1px 2px black, 0 0 1em red, 0 0 0.2em red
+}
+
 .navbar-brand {
     padding-left: 3rem;
+}
+
+.explore-btn {
+    transition: all 1s linear!important;
+}
+
+
+/* .explore-btn:hover {
+    display: none;
+}
+
+.explore {
+    transition: all 1s!important;
+    cursor: pointer;
+}
+
+.explore-btn:hover:before {
+    content: "Our Delicious Menu"!important;
+    color: #dc3545!important;
+    font-weight: bold;
+}
+
+*/
+
+@keyframes click-wave {
+    0% {
+        height: 40px;
+        width: 40px;
+        opacity: 0.35;
+        position: relative;
+    }
+    100% {
+        height: 200px;
+        width: 200px;
+        margin-left: -80px;
+        margin-top: -80px;
+        opacity: 0;
+    }
+}
+
+.option-input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    position: relative;
+    top: 13.33333px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 40px;
+    width: 40px;
+    transition: all 0.15s ease-out 0s;
+    background: #cbd1d8;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 0.5rem;
+    outline: none;
+    position: relative;
+    z-index: 1000;
+}
+
+.option-input:hover {
+    background: #9faab7;
+}
+
+.option-input:checked {
+    background: #40e0d0;
+}
+
+.option-input:checked::before {
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    content: '✔';
+    display: inline-block;
+    font-size: 26.66667px;
+    text-align: center;
+    line-height: 40px;
+}
+
+.option-input:checked::after {
+    -webkit-animation: click-wave 0.65s;
+    -moz-animation: click-wave 0.65s;
+    animation: click-wave 0.65s;
+    background: #40e0d0;
+    content: '';
+    display: block;
+    position: relative;
+    z-index: 100;
+}
+
+.option-input.radio {
+    border-radius: 50%;
+}
+
+.option-input.radio::after {
+    border-radius: 50%;
+}
+
+body label {
+    display: block;
+    line-height: 40px;
+}
+.bulgy-radios {
+    background: #fff;
+    border-radius: 1rem;
+}
+
+.bulgy-radios label {
+    display: block;
+    position: relative;
+    height: 1em;
+    padding-left: 2rem;
+    margin-bottom: 1.75rem;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color: #555;
+    letter-spacing: 1px;
+}
+
+.bulgy-radios label:hover input:not(:checked)~.radio-size {
+    opacity: 0.8;
+}
+
+.bulgy-radios .label {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.bulgy-radios .label span {
+    line-height: 1em;
+}
+
+.bulgy-radios input {
+    position: absolute;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+    left: -2000px;
+}
+
+.bulgy-radios input:checked~.radio-size {
+    background-color: #0ac07d;
+    -webkit-transition: background 0.3s;
+    transition: background 0.3s;
+}
+
+.bulgy-radios input:checked~.radio-size::after {
+    opacity: 1;
+}
+
+.bulgy-radios input:checked~.label {
+    color: #0bae72;
+}
+
+.bulgy-radios input:checked~.label span {
+    -webkit-animation: bulge 0.5s forwards;
+    animation: bulge 0.5s forwards;
+}
+
+.bulgy-radios input:checked~.label span:nth-child(1) {
+    -webkit-animation-delay: 0.025s;
+    animation-delay: 0.025s;
+}
+
+.bulgy-radios input:checked~.label span:nth-child(2) {
+    -webkit-animation-delay: 0.05s;
+    animation-delay: 0.05s;
+}
+
+.bulgy-radios input:checked~.label span:nth-child(3) {
+    -webkit-animation-delay: 0.075s;
+    animation-delay: 0.075s;
+}
+
+.bulgy-radios input:checked~.label span:nth-child(4) {
+    -webkit-animation-delay: 0.1s;
+    animation-delay: 0.1s;
+}
+
+.bulgy-radios input:checked~.label span:nth-child(5) {
+    -webkit-animation-delay: 0.125s;
+    animation-delay: 0.125s;
+}
+
+.bulgy-radios input:checked~.label span:nth-child(6) {
+    -webkit-animation-delay: 0.15s;
+    animation-delay: 0.15s;
+}
+
+.bulgy-radios input:checked~.label span:nth-child(7) {
+    -webkit-animation-delay: 0.175s;
+    animation-delay: 0.175s;
+}
+
+.bulgy-radios input:checked~.label span:nth-child(8) {
+    -webkit-animation-delay: 0.2s;
+    animation-delay: 0.2s;
+}
+
+.bulgy-radios input:checked~.label span:nth-child(9) {
+    -webkit-animation-delay: 0.225s;
+    animation-delay: 0.225s;
+}
+
+.bulgy-radios input:checked~.label span:nth-child(10) {
+    -webkit-animation-delay: 0.25s;
+    animation-delay: 0.25s;
+}
+
+.bulgy-radios input:checked~.label span:nth-child(11) {
+    -webkit-animation-delay: 0.275s;
+    animation-delay: 0.275s;
+}
+
+.bulgy-radios input:checked~.label span:nth-child(12) {
+    -webkit-animation-delay: 0.3s;
+    animation-delay: 0.3s;
+}
+
+.bulgy-radios input:checked~.label span:nth-child(13) {
+    -webkit-animation-delay: 0.325s;
+    animation-delay: 0.325s;
+}
+
+.bulgy-radios input:checked~.label span:nth-child(14) {
+    -webkit-animation-delay: 0.35s;
+    animation-delay: 0.35s;
+}
+
+.bulgy-radios input:checked~.label span:nth-child(15) {
+    -webkit-animation-delay: 0.375s;
+    animation-delay: 0.375s;
+}
+
+.bulgy-radios input:checked~.label span:nth-child(16) {
+    -webkit-animation-delay: 0.4s;
+    animation-delay: 0.4s;
+}
+
+.bulgy-radios input:checked~.label span:nth-child(17) {
+    -webkit-animation-delay: 0.425s;
+    animation-delay: 0.425s;
+}
+
+.bulgy-radios input:checked~.label span:nth-child(18) {
+    -webkit-animation-delay: 0.45s;
+    animation-delay: 0.45s;
+}
+
+.bulgy-radios input:checked~.label span:nth-child(19) {
+    -webkit-animation-delay: 0.475s;
+    animation-delay: 0.475s;
+}
+
+.radio-size {
+    position: absolute;
+    top: 0.2rem;
+    left: 0;
+    width: 1.5rem;
+    height: 1.5rem;
+    background: #c9ded6;
+    border-radius: 50%;
+}
+
+.radio-size::after {
+    content: "";
+    position: absolute;
+    opacity: 0;
+    top: 0.5rem;
+    left: 0.5rem;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: #fff;
+}
+
+@-webkit-keyframes bulge {
+    50% {
+        -webkit-transform: rotate(4deg);
+        transform: rotate(4deg);
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+    100% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0);
+        font-size: 1em;
+        font-weight: bold;
+    }
+}
+
+@keyframes bulge {
+    50% {
+        -webkit-transform: rotate(4deg);
+        transform: rotate(4deg);
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+    100% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0);
+        font-size: 1em;
+        font-weight: bold;
+    }
 }
 
 @media only screen and (max-width: 600px) {

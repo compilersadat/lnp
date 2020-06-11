@@ -1,7 +1,6 @@
 @extends('admin.layouts.layout')
 @section('content')
-    <section>
-        <div class="content-body">
+
 
             <div class="row page-titles mx-0">
                 <div class="col p-md-0">
@@ -21,7 +20,7 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-7">
-                                        <h4 class="card-title pb-3" >Add New Coupen</h4>
+                                        <h4 class="card-title pb-3" >Add New coupon</h4>
 
                                     </div>
                                     <div class="col-md-5 text-right">
@@ -62,7 +61,5 @@
 
                 </div>
             </div>
-        </div>
-
-    </section>
+       
 @endsection

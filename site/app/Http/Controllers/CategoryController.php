@@ -44,6 +44,7 @@ class CategoryController extends Controller
         ]);
         $cat=new Category();
         $cat->name=$request->name;
+        $cat->parent_id=$request->parent_id;
         if($request->file('image')) {
             $upload = $request->file('image');
             $fileformat = time() . '.' . $upload->getClientOriginalName();
@@ -99,6 +100,7 @@ class CategoryController extends Controller
         $cat=Category::where('id',$id)->first();
         
         $cat->name=$request->name;
+        $cat->parent_id=$request->parent_id;
         if($request->file('image')) {
             $upload = $request->file('image');
             $fileformat = time() . '.' . $upload->getClientOriginalName();

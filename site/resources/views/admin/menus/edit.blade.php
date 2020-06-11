@@ -1,7 +1,5 @@
 @extends('admin.layouts.layout')
 @section('content')
-    <section>
-        <div class="content-body">
 
             <div class="row page-titles mx-0">
                 <div class="col p-md-0">
@@ -49,6 +47,22 @@
                                                 @endforeach
                                             </select>
                                         </div>
+                                        <div class="form-group">
+                                        <label>No of free toppings:</label>
+                                            <input type="number" class="form-control input-flat" placeholder="No of free toppings" name="free_toppings" value="{{$item->free_toppings}}">
+                                        </div>
+                                        <div class="form-group">
+                                        <label>No of free sauces:</label>
+                                            <input type="number" class="form-control input-flat" placeholder="No of free sauces" name="free_sauces" value="{{$item->free_sauces}}">
+                                        </div>
+                                        <div class="form-group">
+                                        <label>No of free pops:</label>
+                                            <input type="number" class="form-control input-flat" placeholder="No of free pops" name="free_pops" value="{{$item->pops}}">
+                                        </div>
+                                        <div class="form-group">
+                                        <label>No of free ranches:</label>
+                                            <input type="number" class="form-control input-flat" placeholder="No of free ranch" name="free_ranch" value="{{$item->free_ranch}}">
+                                        </div>
                                         <h4 class="">
                                             Prices
                                         </h4>
@@ -69,6 +83,17 @@
                                                 <label class="custom-file-label">Select Image</label>
                                             </div>
                                         </div>
+                                        <div class="form-group">
+                                            <select class="form-control" id="sel1" name="custome">
+                                                <option value="selected">Select Customization</option>
+                                                <option value="0" @if($item->custome_type==0) selected @endif>No Customization</option>
+                                                <option value="1" @if($item->custome_type==1) selected @endif>Dough/Base Sauce+Toppings+Special Instructions</option>
+                                                <option value="2" @if($item->custome_type==2) selected @endif>Dough/Base Sauce+Toppings+Special Instructions+Pops</option>
+                                                <option value="3"  @if($item->custome_type==3) selected @endif>Sauces</option>
+                                                <option value="4"  @if($item->custome_type==4) selected @endif>Sauces+toppings</option>
+                                                 <option value="5" @if($item->custome_type==5) selected @endif>Classic/Breaded+Dipping Sauces</option>
+                                            </select>
+                                        </div>
                                         <div class="text-center">
                                             <button type="" class="btn px-5 btn-primary">Edit Now</button>
                                         </div>
@@ -80,7 +105,5 @@
 
                 </div>
             </div>
-        </div>
-
-    </section>
+       
 @endsection

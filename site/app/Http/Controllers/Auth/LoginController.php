@@ -68,4 +68,6 @@ class LoginController extends Controller
             $user = Socialite::driver('facebook')->user();
             dump($user) or die();
         }
+
+        
 }

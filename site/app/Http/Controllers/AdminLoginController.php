@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use app\Admin;
 use Auth;
-
+use Hash;
+use Lang;
 class AdminLoginController extends Controller
 {
     public function login(){

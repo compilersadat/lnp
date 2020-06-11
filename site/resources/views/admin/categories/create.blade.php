@@ -1,8 +1,6 @@
-
 @extends('admin.layouts.layout')
 @section('content')
-    <section>
-        <div class="content-body">
+
 
             <div class="row page-titles mx-0">
                 <div class="col p-md-0">
@@ -36,6 +34,16 @@
                                         <div class="form-group">
                                             <input type="text" name="name" class="form-control input-flat" placeholder="Enter Category Name ">
                                         </div>
+                                        <div class="form-group">
+                                            <select class="form-control" id="sel1" name="parent_id" required>
+                                                <option value="selected">Select Parent</option>
+                                                <option value="0">No Parent</option>
+                                                @foreach(@App\Category::where('parent_id',0)->get() as $row)
+                                                	
+                                            		<option value="{{$row->id}}">{{$row->name}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend"><span class="input-group-text">Upload</span>
                                             </div>
@@ -55,7 +63,5 @@
 
                 </div>
             </div>
-        </div>
-
-    </section>
+        
 @endsection

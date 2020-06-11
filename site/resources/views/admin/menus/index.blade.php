@@ -1,6 +1,5 @@
 @extends('admin.layouts.layout')
 @section('content')
-    <div class="content-body">
 
         <div class="row page-titles mx-0">
             <div class="col p-md-0">
@@ -56,9 +55,9 @@
                                                         <b>{{$var->value}}:</b>{{$var->price}}<br>
                                                     @endforeach
                                                 </td>
-                                                <td>Cat</td>
+                                                <td>{{@App\Category::where('id',$row->cat_id)->value('name')}}</td>
                                                 <td>
-                                                    <img src="{{asset('uploads/menus/'.$row->image)}}" width="50" height="50">
+                                                    
                                                 </td>
                                             <td> @if($row->active==0) Inactive @endif @if($row->active==1) Active @endif</td>
                                                 <td>
@@ -92,6 +91,5 @@
             </div>
         </div>
         <!-- #/ container -->
-    </div>
 
 @endsection

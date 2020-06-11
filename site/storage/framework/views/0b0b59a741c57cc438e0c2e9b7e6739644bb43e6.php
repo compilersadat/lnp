@@ -18,7 +18,7 @@
                             <?php echo csrf_field(); ?>
                                 <!-- Email -->
                                 <div class="md-form ">
-                                    <input type="email" id="" name="email" placeholder="Enter Email" class="form-control text-center   btn-inside_se <?php echo e($errors->has('email') ? ' is-invalid' : ''); ?>" style="border:none;" value="<?php echo e(old('email')); ?>">
+                                    <input type="text" id="" name="email" placeholder="Enter  Email or Number" class="form-control text-center   btn-inside_se <?php echo e($errors->has('email') ? ' is-invalid' : ''); ?>" style="border:none;" value="<?php echo e(old('email')); ?>">
                                     <?php if($errors->has('email')): ?>
                                     <span class="p-0 m-0 text-danger text-left mb-4"> <strong><?php echo e($errors->first('email')); ?></strong></span>
                                     <?php endif; ?>

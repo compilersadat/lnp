@@ -1,6 +1,6 @@
 @extends('admin.layouts.layout')
 @section('content')
-    <div class="content-body">
+   
 
         <div class="row page-titles mx-0">
             <div class="col p-md-0">
@@ -33,6 +33,7 @@
                                 <table class="table table-striped table-bordered zero-configuration">
                                     <thead>
                                     <tr>
+                                    	<th>Type</th>
                                         <th>Title</th>
                                         <th>Description</th>
                                         <th>Image</th>
@@ -44,6 +45,7 @@
                                     <tbody>
                                         @foreach (App\Slide::orderBy('id','DESC')->get() as $item)
                                         <tr>
+                                        <td>{{$item->type}}</td>
                                         <td>{{$item->title}}</td>
                                         <td>{{$item->description}}</td>
                                         <td><img src="{{asset('uploads/slides/'.$item->image)}}" width="50" height="50"></td>
@@ -73,6 +75,5 @@
             </div>
         </div>
         <!-- #/ container -->
-    </div>
 
 @endsection

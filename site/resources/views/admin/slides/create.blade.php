@@ -1,7 +1,6 @@
 @extends('admin.layouts.layout')
 @section('content')
-    <section>
-        <div class="content-body">
+
 
             <div class="row page-titles mx-0">
                 <div class="col p-md-0">
@@ -32,6 +31,14 @@
                                 <div class="basic-form">
                                 <form method="POST" action="{{route('slides.store')}}" enctype="multipart/form-data">
                                     @csrf
+                                    <div class="form-group">
+                                            <select class="form-control" id="sel1" name="type">
+                                                <option value="0">Select Type</option>
+                                                <option value="banner">Banner</option>
+                                                <option value="slide">general</option>
+                                                
+                                            </select>
+                                        </div>
                                         <div class="form-group">
                                             <input type="text" class="form-control input-flat" placeholder="Enter Title " name="title">
                                         </div>
@@ -62,7 +69,5 @@
 
                 </div>
             </div>
-        </div>
-
-    </section>
+       
 @endsection

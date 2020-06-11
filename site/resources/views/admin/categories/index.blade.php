@@ -1,6 +1,5 @@
 @extends('admin.layouts.layout')
 @section('content')
-    <div class="content-body">
 
         <div class="row page-titles mx-0">
             <div class="col p-md-0">
@@ -65,7 +64,6 @@
                     </div>
                 </div>
             </div>
-        </div>
         <!-- #/ container -->
     </div>
 

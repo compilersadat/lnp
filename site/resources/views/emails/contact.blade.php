@@ -1,25 +1,11 @@
+<!DOCTYPE html>
 <html>
 <head>
+  <title>{{$user['subject']}}</title>
 </head>
 <body>
-<div style="width: 100%; text-align: center;">
-    <p>
-        {{ $data['message'] }}
-    </p>
-    <p>
-        ---
-        <br>
-        <b>
-            {{ $data['name'] }}<br>
-            {{ $data['email'] }}
-        </b>
-
-    </p>
-</div>
+Name:{{$user['name']}}<br>
+Email:{{$user['email']}}<br>
+Message:{{$user['message']}}<br>
 </body>
 </html>
-
-
-
-
-
